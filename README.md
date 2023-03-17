@@ -70,4 +70,9 @@
 
 
 ### История коммитов:
+
+#### Часть 1:
 https://github.com/Hieronius/Learning-projects-2023/commits/Main/NewsTestApp
+
+#### Часть 2:
+https://github.com/Hieronius/NewsApp/commits/Main
