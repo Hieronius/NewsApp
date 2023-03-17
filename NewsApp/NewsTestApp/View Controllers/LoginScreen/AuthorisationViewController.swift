@@ -9,16 +9,20 @@ import UIKit
 
 final class AuthorisationViewController: UIViewController {
     
-    // MARK: Navigation
+    // MARK: - IBOutlets
     
     @IBOutlet private weak var authorisationEmailTextField: UITextField!
     @IBOutlet private weak var authorisationPasswordTextField: UITextField!
     @IBOutlet private weak var authorisationLogInButton: UIButton!
     
+    // MARK: - Private Properties
+    
     private var isAuthorisationLogAndPasswordTextFieldsIsEmpty: Bool {
         authorisationEmailTextField.text?.isEmpty == true ||
         authorisationPasswordTextField.text?.isEmpty == true
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,8 @@ final class AuthorisationViewController: UIViewController {
         setupAuthorisationPasswordTextField()
         setupAuthorisationLogInButton()
     }
+    
+    // MARK: - Private Methods
     
     private func setupAuthorisationEmailTextField() {
         authorisationEmailTextField.layer.cornerRadius = 20
@@ -46,6 +52,8 @@ final class AuthorisationViewController: UIViewController {
     private func setupAuthorisationLogInButton() {
         authorisationLogInButton.layer.cornerRadius = 20
     }
+    
+    // MARK: - IBActions
     
     @IBAction private func authorisationlogInButtonPressed(_ sender: Any) {
         if authorisationEmailTextField.text == testUser.userLogin && authorisationPasswordTextField.text == testUser.userPassword {

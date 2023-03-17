@@ -9,8 +9,12 @@ import UIKit
 
 final class ResetViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var resetEmailTextField: UITextField!
     @IBOutlet private weak var resetPasswordButton: UIButton!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,8 @@ final class ResetViewController: UIViewController {
         setupResetEmailTextField()
         setupResetPasswordButton()
     }
+    
+    // MARK: - Private Methods
     
     private func setupResetEmailTextField() {
         resetEmailTextField.layer.cornerRadius = 20
@@ -29,6 +35,8 @@ final class ResetViewController: UIViewController {
     private func setupResetPasswordButton() {
         resetPasswordButton.layer.cornerRadius = 20
     }
+    
+    // MARK: - IBActions
     
     @IBAction private func resetPasswordButtonPressed(_ sender: Any) {
         if resetEmailTextField.text?.isEmpty == true {
@@ -48,4 +56,5 @@ final class ResetViewController: UIViewController {
             resetEmailTextField.text = ""
         }
     }
+    
 }

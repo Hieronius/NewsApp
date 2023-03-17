@@ -8,12 +8,17 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var detailArticleImageView: UIImageView!
     @IBOutlet private weak var detailArticleDateLabel: UILabel!
     @IBOutlet private weak var detailArticleLikeButton: UIButton!
     @IBOutlet private weak var detailArticleLabel: UILabel!
     @IBOutlet private weak var detailArticleText: UILabel!
     @IBOutlet private weak var detailArticleView: UIView!
+    
+    // MARK: - Public Properties
     
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     weak var favouriteViewControllerDelegate: FavouriteViewControllerDelegate?
@@ -22,11 +27,15 @@ final class DetailViewController: UIViewController {
     var currentStateOfLikeButtonOfSelectedArticle: UIImage?
     var selectedArticle: Article!
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSpecificArticleView()
     }
+    
+    // MARK: - Private Methods
     
     private func setupSpecificArticleView() {
             detailArticleImageView.layer.cornerRadius = 40
@@ -37,6 +46,8 @@ final class DetailViewController: UIViewController {
             detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? defaultImage)
             detailArticleLikeButton.setImage(currentStateOfLikeButtonOfSelectedArticle, for: .normal)
         }
+    
+    // MARK: - IBActions
         
     @IBAction func detailArticleLikeButtonPressed(_ sender: UIButton) {
         if sender.imageView?.image == LikeButton.unpressed.image {
@@ -49,4 +60,5 @@ final class DetailViewController: UIViewController {
             favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
         }
     }
+    
 }

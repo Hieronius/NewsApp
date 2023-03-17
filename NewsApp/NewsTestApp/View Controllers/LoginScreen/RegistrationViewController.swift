@@ -8,10 +8,15 @@
 import UIKit
 
 final class RegistrationViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var registrationNameTextField: UITextField!
     @IBOutlet private weak var registrationEmailTextField: UITextField!
     @IBOutlet private weak var registrationPasswordTextField: UITextField!
     @IBOutlet private weak var registrationLogInButton: UIButton!
+    
+    // MARK: - Private Properties
     
     private var isRegistrationTextFieldsIsEmpty: Bool {
         registrationNameTextField.text?.isEmpty == true ||
@@ -21,6 +26,8 @@ final class RegistrationViewController: UIViewController {
     
     private let registrationTextFieldsBorderColor = UIColor.white.cgColor
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +36,8 @@ final class RegistrationViewController: UIViewController {
         setupRegistrationPasswordTestField()
         setupRegistrationLogInButton()
     }
+    
+    // MARK: - Private Methods
     
     private func setupRegistrationNameTextField() {
         registrationNameTextField.layer.cornerRadius = 20
@@ -55,6 +64,8 @@ final class RegistrationViewController: UIViewController {
         registrationLogInButton.layer.cornerRadius = 20
     }
     
+    // MARK: - IBActions
+    
     @IBAction private func registrationLogInButtonPressed(_ sender: Any) {
         if isRegistrationTextFieldsIsEmpty {
             let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
@@ -70,4 +81,5 @@ final class RegistrationViewController: UIViewController {
             performSegue(withIdentifier: "RegistrationToTabBarSegue", sender: sender)
         }
     }
+    
 }

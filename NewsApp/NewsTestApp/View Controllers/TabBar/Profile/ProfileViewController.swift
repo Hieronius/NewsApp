@@ -8,14 +8,21 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileNameField: UITextField!
     @IBOutlet private weak var profileEmailFeild: UITextField!
+    
+    // MARK: - Private Properties
     
     private let backgroundColorForViewControllersFromFigma = UIColor(displayP3Red: 242,
                                                                      green: 242,
                                                                      blue: 246,
                                                                      alpha: 1)
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +31,8 @@ final class ProfileViewController: UIViewController {
         setupProfileNameField()
         setupProfileEmailField()
     }
+    
+    // MARK: - Private Methods
     
     private func setupProfileImageView() {
         profileImageView.image = testUser.userTestPhoto
@@ -46,6 +55,8 @@ final class ProfileViewController: UIViewController {
         profileEmailFeild.layer.masksToBounds = true
     }
     
+    // MARK: - IBActions
+    
     @IBAction private func logOutButtonPressed(_ sender: Any) {
         let ac = UIAlertController(title: "Выход", message: "Вы уверены, что хотите выйти из аккаунта?", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Отмена", style: .default))
@@ -54,4 +65,5 @@ final class ProfileViewController: UIViewController {
         }))
         self.present(ac, animated: true)
     }
+    
 }

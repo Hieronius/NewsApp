@@ -8,18 +8,27 @@
 import UIKit
 
 protocol FeedViewControllerDelegate: AnyObject {
+    
     func addToSavedLikedArticle(index: IndexPath)
     func removeDislikedArticleFromSaved(index: IndexPath)
 }
 
 final class FeedViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var feedTable: UITableView!
+    
+    // MARK: - Private Properties
     
     private let numbersOfCellsInUITableViewSection = 1
     private let heightForHeaderOfTableViewSection: CGFloat = 3
     
+    // MARK: - Public Properties
     var savedArticles = [Article]()
     var articlesDownloadedFromAPI = [Article]()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +48,8 @@ final class FeedViewController: UIViewController {
         checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton()
     }
     
+    // MARK: - Private Properties
+    
     /// When user wan't to go back from FavouriteViewController  to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
     func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
         var arrayOfArticlesToChange = [Int]()
@@ -55,6 +66,34 @@ final class FeedViewController: UIViewController {
         }
     }
     
+    func matchSavedArticlesWithFavouriteArticles() {
+        let tabBar = self.tabBarController
+        guard let viewControllers = tabBar?.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let favouriteNaviVC = viewController as? FavouriteNavigationViewController {
+                if let favouriteVC = favouriteNaviVC.viewControllers.first as? FavouriteViewController {
+                    favouriteVC.favouriteArticles = self.savedArticles
+                }
+            }
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! DetailViewController
+        guard let indexPath = feedTable.indexPathForSelectedRow else { return }
+        vc.selectedArticle = articlesDownloadedFromAPI[indexPath.section]
+        vc.indexOfSelectedArticle = indexPath
+        if let articleCell = feedTable.cellForRow(at: indexPath) as? FeedTableViewCell {
+            vc.currentStateOfLikeButtonOfSelectedArticle = articleCell.feedArticleLikeButton.imageView?.image
+        }
+        vc.feedViewControllerDelegate = self
+     }
+    
+    // MARK: - IBActions
+    
     @IBAction func feedArticleLikeButtonPressed(_ sender: UIButton) {
         let likedArticleIndex = sender.tag
         let likedArticle = articlesDownloadedFromAPI[likedArticleIndex]
@@ -69,33 +108,15 @@ final class FeedViewController: UIViewController {
         }
         matchSavedArticlesWithFavouriteArticles()
     }
-    
-    func matchSavedArticlesWithFavouriteArticles() {
-        let tabBar = self.tabBarController
-        guard let viewControllers = tabBar?.viewControllers else { return }
         
-        for viewController in viewControllers {
-            if let favouriteNaviVC = viewController as? FavouriteNavigationViewController {
-                if let favouriteVC = favouriteNaviVC.viewControllers.first as? FavouriteViewController {
-                    favouriteVC.favouriteArticles = self.savedArticles
-                }
-            }
-        }
-    }
-        
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! DetailViewController
-        guard let indexPath = feedTable.indexPathForSelectedRow else { return }
-        vc.selectedArticle = articlesDownloadedFromAPI[indexPath.section]
-        vc.indexOfSelectedArticle = indexPath
-        if let articleCell = feedTable.cellForRow(at: indexPath) as? FeedTableViewCell {
-            vc.currentStateOfLikeButtonOfSelectedArticle = articleCell.feedArticleLikeButton.imageView?.image
-        }
-        vc.feedViewControllerDelegate = self
-     }
 }
 
+// MARK: - Extensions
+
+// MARK: - UITableViewDelegate
+
 extension FeedViewController: UITableViewDelegate {
+    
      func numberOfSections(in tableView: UITableView) -> Int {
          self.articlesDownloadedFromAPI.count
      }
@@ -109,7 +130,10 @@ extension FeedViewController: UITableViewDelegate {
      }
 }
 
+// MARK: - UITableViewDataSource
+
 extension FeedViewController: UITableViewDataSource {
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
          cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.section].urlToImage ?? defaultImage)
@@ -123,7 +147,10 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - FeedViewControllerDelegate
+
 extension FeedViewController: FeedViewControllerDelegate {
+    
     func addToSavedLikedArticle(index: IndexPath) {
         if let cell = feedTable.cellForRow(at: index) as? FeedTableViewCell {
             cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .normal)
@@ -142,4 +169,5 @@ extension FeedViewController: FeedViewControllerDelegate {
             }
         }
     }
+    
 }

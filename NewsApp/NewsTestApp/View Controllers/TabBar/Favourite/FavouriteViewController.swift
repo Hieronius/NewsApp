@@ -8,14 +8,22 @@
 import UIKit
 
 protocol FavouriteViewControllerDelegate: AnyObject {
+    
     func likeArticleAndAddToFavourite(indexOfLikedArticle: IndexPath, likedArticle: Article)
     func dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: IndexPath)
 }
 
 final class FavouriteViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet private weak var favouriteCollectionView: UICollectionView!
     
+    // MARK: - Public Properties
+    
     var favouriteArticles = [Article]()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +36,23 @@ final class FavouriteViewController: UIViewController {
         favouriteCollectionView.reloadData()
     }
     
+    // MARK: - Private Properties
+    
+    func matchFavouriteArticlesWithSavedArticles() {
+        let tabBar = self.tabBarController
+        guard let viewControllers = tabBar?.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let feedNavigationViewController = viewController as? FeedNavigationViewController {
+                if let feedViewController = feedNavigationViewController.viewControllers.first as? FeedViewController {
+                    feedViewController.savedArticles = self.favouriteArticles
+                }
+            }
+        }
+    }
+    
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
         guard let indexPath = favouriteCollectionView.indexPathsForSelectedItems?[0] else { return }
@@ -39,6 +64,8 @@ final class FavouriteViewController: UIViewController {
         }
         detailViewController.favouriteViewControllerDelegate = self
     }
+    
+    // MARK: - IBActions
 
     @IBAction func favouriteArticleLikeButtonPressed(_ sender: UIButton) {
         let likedArticleIndex = sender.tag
@@ -58,25 +85,19 @@ final class FavouriteViewController: UIViewController {
         matchFavouriteArticlesWithSavedArticles()
     }
     
-    func matchFavouriteArticlesWithSavedArticles() {
-        let tabBar = self.tabBarController
-        guard let viewControllers = tabBar?.viewControllers else { return }
-        
-        for viewController in viewControllers {
-            if let feedNavigationViewController = viewController as? FeedNavigationViewController {
-                if let feedViewController = feedNavigationViewController.viewControllers.first as? FeedViewController {
-                    feedViewController.savedArticles = self.favouriteArticles
-                }
-            }
-        }
-    }
 }
+
+// MARK: - Extensions
+
+// MARK: - UICollectionViewDelegate
 
 extension FavouriteViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return favouriteArticles.count
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension FavouriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,11 +112,15 @@ extension FavouriteViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension FavouriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 164, height: 191)
     }
 }
+
+// MARK: - FavouriteViewControllerDelegate
 
 extension FavouriteViewController: FavouriteViewControllerDelegate {
     func likeArticleAndAddToFavourite(indexOfLikedArticle: IndexPath, likedArticle: Article) {
@@ -116,5 +141,6 @@ extension FavouriteViewController: FavouriteViewControllerDelegate {
             matchFavouriteArticlesWithSavedArticles()
         }
     }
+    
 }
     

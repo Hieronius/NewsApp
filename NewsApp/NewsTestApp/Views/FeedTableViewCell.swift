@@ -8,6 +8,9 @@
 import UIKit
 
 final class FeedTableViewCell: UITableViewCell {
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var feedArticleImageView: UIImageView!
     @IBOutlet weak var feedArticleDateLabel: UILabel!
     @IBOutlet weak var feedArticleLabel: UILabel!

@@ -10,6 +10,9 @@ import MapKit
 import CoreLocation
 
 final class MapViewController: UIViewController {
+    
+    // MARK: - Private Properties
+    
     private let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +55,8 @@ final class MapViewController: UIViewController {
         [eyeTowerPoint, eyeTowerSecondPoint, nevaTowerPoint, eurasiaPoint, towerUnderWaterPoint]
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +66,8 @@ final class MapViewController: UIViewController {
         mapView.delegate = self
         setMapViewRegion()
     }
+    
+    // MARK: - Private Methods
     
     private func setupMapViewConstraints() {
         NSLayoutConstraint.activate([
@@ -81,7 +88,12 @@ final class MapViewController: UIViewController {
                 longitudeDelta: 0.01)),
         animated: false)
     }
+    
 }
+
+// MARK: - Extensions
+
+// MARK: - MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
