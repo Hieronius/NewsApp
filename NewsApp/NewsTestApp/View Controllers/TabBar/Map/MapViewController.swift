@@ -19,7 +19,6 @@ final class MapViewController: UIViewController {
         return mapView
     }()
     
-    
     private let nevaTowerPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: nevaTower.latitude, longitude: nevaTower.longtitude)

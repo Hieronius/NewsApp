@@ -36,7 +36,7 @@ final class FavouriteViewController: UIViewController {
         favouriteCollectionView.reloadData()
     }
     
-    // MARK: - Private Properties
+    // MARK: - Public Methods
     
     func matchFavouriteArticlesWithSavedArticles() {
         let tabBar = self.tabBarController

@@ -49,7 +49,7 @@ final class FeedViewController: UIViewController {
         checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton()
     }
     
-    // MARK: - Private Properties
+    // MARK: - Public Methods
     
     /// When user wan't to go back from FavouriteViewController  to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
     func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
