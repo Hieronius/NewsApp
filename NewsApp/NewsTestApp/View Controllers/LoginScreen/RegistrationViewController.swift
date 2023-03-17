@@ -8,10 +8,10 @@
 import UIKit
 
 final class RegistrationViewController: UIViewController {
-    @IBOutlet weak var registrationNameTextField: UITextField!
-    @IBOutlet weak var registrationEmailTextField: UITextField!
-    @IBOutlet weak var registrationPasswordTextField: UITextField!
-    @IBOutlet weak var registrationLogInButton: UIButton!
+    @IBOutlet private weak var registrationNameTextField: UITextField!
+    @IBOutlet private weak var registrationEmailTextField: UITextField!
+    @IBOutlet private weak var registrationPasswordTextField: UITextField!
+    @IBOutlet private weak var registrationLogInButton: UIButton!
     
     private var isRegistrationTextFieldsIsEmpty: Bool {
         registrationNameTextField.text?.isEmpty == true ||
@@ -55,7 +55,7 @@ final class RegistrationViewController: UIViewController {
         registrationLogInButton.layer.cornerRadius = 20
     }
     
-    @IBAction func registrationLogInButtonPressed(_ sender: Any) {
+    @IBAction private func registrationLogInButtonPressed(_ sender: Any) {
         if isRegistrationTextFieldsIsEmpty {
             let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
