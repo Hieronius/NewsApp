@@ -9,6 +9,7 @@ import UIKit
 
 final class AuthorisationViewController: UIViewController {
     
+    // MARK: Navigation
     
     @IBOutlet private weak var authorisationEmailTextField: UITextField!
     @IBOutlet private weak var authorisationPasswordTextField: UITextField!

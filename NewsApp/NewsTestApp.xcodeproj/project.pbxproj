@@ -83,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD05D98329C49C5F00E14F03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD78E07229AA2D6A0055E656 /* FeedTableViewCell.swift */,
+				DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DD78E07029AA141A0055E656 /* MapViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +105,6 @@
 			children = (
 				DD88BFF729BDF5D40008D76D /* FeedNavigationViewController.swift */,
 				DD82226A29A7AB7200E830C1 /* FeedViewController.swift */,
-				DD78E07229AA2D6A0055E656 /* FeedTableViewCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -147,7 +155,6 @@
 			children = (
 				DD88BFFD29BE555B0008D76D /* FavouriteNavigationViewController.swift */,
 				DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */,
-				DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */,
 			);
 			path = Favourite;
 			sourceTree = "<group>";
@@ -180,11 +187,12 @@
 		DD82224C29A79AD900E830C1 /* NewsTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				DDE211B229C3648B00EC9A00 /* Enums */,
-				DDF5AD6D29A90CE500FA48F9 /* Extensions */,
-				DD82226529A79F5000E830C1 /* Models */,
 				DD82226329A79C8A00E830C1 /* View Controllers */,
+				DD82226529A79F5000E830C1 /* Models */,
+				DD05D98329C49C5F00E14F03 /* Views */,
 				DD82226229A79C7E00E830C1 /* Storyboards */,
+				DDF5AD6D29A90CE500FA48F9 /* Extensions */,
+				DDE211B229C3648B00EC9A00 /* Enums */,
 				DD82226129A79C7400E830C1 /* Resources */,
 				DD82226429A79C9A00E830C1 /* Supporting files */,
 			);
