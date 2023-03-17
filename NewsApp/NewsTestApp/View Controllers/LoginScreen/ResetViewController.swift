@@ -9,8 +9,8 @@ import UIKit
 
 final class ResetViewController: UIViewController {
     
-    @IBOutlet weak var resetEmailTextField: UITextField!
-    @IBOutlet weak var resetPasswordButton: UIButton!
+    @IBOutlet private weak var resetEmailTextField: UITextField!
+    @IBOutlet private weak var resetPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ final class ResetViewController: UIViewController {
         resetPasswordButton.layer.cornerRadius = 20
     }
     
-    @IBAction func resetPasswordButtonPressed(_ sender: Any) {
+    @IBAction private func resetPasswordButtonPressed(_ sender: Any) {
         if resetEmailTextField.text?.isEmpty == true {
             let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default))

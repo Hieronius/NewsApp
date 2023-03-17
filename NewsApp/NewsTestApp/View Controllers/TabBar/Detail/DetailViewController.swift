@@ -8,12 +8,12 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak var detailArticleImageView: UIImageView!
-    @IBOutlet weak var detailArticleDateLabel: UILabel!
-    @IBOutlet weak var detailArticleLikeButton: UIButton!
-    @IBOutlet weak var detailArticleLabel: UILabel!
-    @IBOutlet weak var detailArticleText: UILabel!
-    @IBOutlet weak var detailArticleView: UIView!
+    @IBOutlet private weak var detailArticleImageView: UIImageView!
+    @IBOutlet private weak var detailArticleDateLabel: UILabel!
+    @IBOutlet private weak var detailArticleLikeButton: UIButton!
+    @IBOutlet private weak var detailArticleLabel: UILabel!
+    @IBOutlet private weak var detailArticleText: UILabel!
+    @IBOutlet private weak var detailArticleView: UIView!
     
     weak var feedViewControllerDelegate: FeedViewControllerDelegate?
     weak var favouriteViewControllerDelegate: FavouriteViewControllerDelegate?

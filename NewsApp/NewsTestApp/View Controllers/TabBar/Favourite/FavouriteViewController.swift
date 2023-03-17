@@ -13,7 +13,7 @@ protocol FavouriteViewControllerDelegate: AnyObject {
 }
 
 final class FavouriteViewController: UIViewController {
-    @IBOutlet weak var favouriteCollectionView: UICollectionView!
+    @IBOutlet private weak var favouriteCollectionView: UICollectionView!
     
     var favouriteArticles = [Article]()
     

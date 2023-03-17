@@ -13,7 +13,7 @@ protocol FeedViewControllerDelegate: AnyObject {
 }
 
 final class FeedViewController: UIViewController {
-    @IBOutlet weak var feedTable: UITableView!
+    @IBOutlet private weak var feedTable: UITableView!
     
     private let numbersOfCellsInUITableViewSection = 1
     private let heightForHeaderOfTableViewSection: CGFloat = 3

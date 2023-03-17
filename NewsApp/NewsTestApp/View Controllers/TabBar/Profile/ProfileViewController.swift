@@ -8,9 +8,9 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var profileNameField: UITextField!
-    @IBOutlet weak var profileEmailFeild: UITextField!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var profileNameField: UITextField!
+    @IBOutlet private weak var profileEmailFeild: UITextField!
     
     private let backgroundColorForViewControllersFromFigma = UIColor(displayP3Red: 242,
                                                                      green: 242,
@@ -46,8 +46,7 @@ final class ProfileViewController: UIViewController {
         profileEmailFeild.layer.masksToBounds = true
     }
     
-    
-    @IBAction func logOutButtonPressed(_ sender: Any) {
+    @IBAction private func logOutButtonPressed(_ sender: Any) {
         let ac = UIAlertController(title: "Выход", message: "Вы уверены, что хотите выйти из аккаунта?", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Отмена", style: .default))
         ac.addAction(UIAlertAction(title: "Выйти", style: .destructive, handler: { action in
