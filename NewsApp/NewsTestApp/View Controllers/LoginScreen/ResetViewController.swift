@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResetViewController: UIViewController {
+final class ResetViewController: UIViewController {
     
     @IBOutlet weak var resetEmailTextField: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthorisationViewController: UIViewController {
+final class AuthorisationViewController: UIViewController {
     @IBOutlet weak var authorisationEmailTextField: UITextField!
     @IBOutlet weak var authorisationPasswordTextField: UITextField!
     @IBOutlet weak var authorisationLogInButton: UIButton!

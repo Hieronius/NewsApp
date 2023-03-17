@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouriteNavigationViewController: UINavigationController {
+final class FavouriteNavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

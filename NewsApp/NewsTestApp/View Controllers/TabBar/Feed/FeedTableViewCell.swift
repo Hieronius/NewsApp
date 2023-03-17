@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedTableViewCell: UITableViewCell {
+final class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var feedArticleImageView: UIImageView!
     @IBOutlet weak var feedArticleDateLabel: UILabel!
     @IBOutlet weak var feedArticleLabel: UILabel!

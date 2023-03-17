@@ -12,7 +12,7 @@ protocol FavouriteViewControllerDelegate: AnyObject {
     func dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: IndexPath)
 }
 
-class FavouriteViewController: UIViewController {
+final class FavouriteViewController: UIViewController {
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     
     var favouriteArticles = [Article]()

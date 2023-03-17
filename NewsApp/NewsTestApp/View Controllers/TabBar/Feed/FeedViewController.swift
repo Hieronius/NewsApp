@@ -12,7 +12,7 @@ protocol FeedViewControllerDelegate: AnyObject {
     func removeDislikedArticleFromSaved(index: IndexPath)
 }
 
-class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController {
     @IBOutlet weak var feedTable: UITableView!
     
     private let numbersOfCellsInUITableViewSection = 1

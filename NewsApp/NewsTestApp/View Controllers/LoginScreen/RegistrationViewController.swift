@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
     @IBOutlet weak var registrationNameTextField: UITextField!
     @IBOutlet weak var registrationEmailTextField: UITextField!
     @IBOutlet weak var registrationPasswordTextField: UITextField!

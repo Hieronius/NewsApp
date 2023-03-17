@@ -345,7 +345,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWQ-Xi-3Mu" userLabel="likeButton">
-                                                    <rect key="frame" x="59.5" y="95" width="68.5" height="40"/>
+                                                    <rect key="frame" x="70" y="95" width="58" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Ncm-xD-zGB"/>
                                                     </constraints>
@@ -787,7 +787,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qsf-Mb-sth"/>
-        <segue reference="FZd-nQ-uJF"/>
+        <segue reference="6aW-PU-FYD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Vector-2" width="28" height="22"/>

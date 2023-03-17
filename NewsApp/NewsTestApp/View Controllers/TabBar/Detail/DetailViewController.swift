@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     @IBOutlet weak var detailArticleImageView: UIImageView!
     @IBOutlet weak var detailArticleDateLabel: UILabel!
     @IBOutlet weak var detailArticleLikeButton: UIButton!
