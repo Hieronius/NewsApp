@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension UIImageView {
     
     /// Load image from API web-adress

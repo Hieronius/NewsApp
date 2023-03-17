@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+    
     /// With this method we wan't cut date label by 10 symbols to make it clean and concise
     func formateArticleDate() -> String {
         let maxLenght = 10

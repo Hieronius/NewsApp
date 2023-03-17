@@ -8,9 +8,11 @@
 import UIKit
 
 final class AuthorisationViewController: UIViewController {
-    @IBOutlet weak var authorisationEmailTextField: UITextField!
-    @IBOutlet weak var authorisationPasswordTextField: UITextField!
-    @IBOutlet weak var authorisationLogInButton: UIButton!
+    
+    
+    @IBOutlet private weak var authorisationEmailTextField: UITextField!
+    @IBOutlet private weak var authorisationPasswordTextField: UITextField!
+    @IBOutlet private weak var authorisationLogInButton: UIButton!
     
     private var isAuthorisationLogAndPasswordTextFieldsIsEmpty: Bool {
         authorisationEmailTextField.text?.isEmpty == true ||
@@ -44,7 +46,7 @@ final class AuthorisationViewController: UIViewController {
         authorisationLogInButton.layer.cornerRadius = 20
     }
     
-    @IBAction func authorisationlogInButtonPressed(_ sender: Any) {
+    @IBAction private func authorisationlogInButtonPressed(_ sender: Any) {
         if authorisationEmailTextField.text == testUser.userLogin && authorisationPasswordTextField.text == testUser.userPassword {
             performSegue(withIdentifier: "TabBarSegue", sender: sender)
 
@@ -65,16 +67,16 @@ final class AuthorisationViewController: UIViewController {
         }
     }
     
-    @IBAction func toRegistrationButtonPressed(_ sender: Any) {
+    @IBAction private func toRegistrationButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "ShowRegistration", sender: sender)
     }
     
-    @IBAction func toResetPasswordButtonPressed(_ sender: Any) {
+    @IBAction private func toResetPasswordButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "showReset", sender: sender)
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        
     }
+    
 }
 
