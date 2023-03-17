@@ -9,8 +9,8 @@ import UIKit
 
 protocol FeedViewControllerDelegate: AnyObject {
     
-    func addToSavedLikedArticle(index: IndexPath)
-    func removeDislikedArticleFromSaved(index: IndexPath)
+    func addToSavedLikedArticle(articleIndex: IndexPath)
+    func removeDislikedArticleFromSaved(articleIndex: IndexPath)
 }
 
 final class FeedViewController: UIViewController {
@@ -25,6 +25,7 @@ final class FeedViewController: UIViewController {
     private let heightForHeaderOfTableViewSection: CGFloat = 3
     
     // MARK: - Public Properties
+    
     var savedArticles = [Article]()
     var articlesDownloadedFromAPI = [Article]()
     
@@ -151,19 +152,19 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: FeedViewControllerDelegate {
     
-    func addToSavedLikedArticle(index: IndexPath) {
-        if let cell = feedTable.cellForRow(at: index) as? FeedTableViewCell {
+    func addToSavedLikedArticle(articleIndex: IndexPath) {
+        if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
             cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .normal)
-            savedArticles.append(articlesDownloadedFromAPI[index.section])
+            savedArticles.append(articlesDownloadedFromAPI[articleIndex.section])
             matchSavedArticlesWithFavouriteArticles()
         }
     }
     
-    func removeDislikedArticleFromSaved(index: IndexPath) {
-        if let cell = feedTable.cellForRow(at: index) as? FeedTableViewCell {
+    func removeDislikedArticleFromSaved(articleIndex: IndexPath) {
+        if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
             cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
             
-            if let indexOfSavedArticle = savedArticles.firstIndex(of: articlesDownloadedFromAPI[index.section]) {
+            if let indexOfSavedArticle = savedArticles.firstIndex(of: articlesDownloadedFromAPI[articleIndex.section]) {
                 self.savedArticles.remove(at: indexOfSavedArticle)
                 matchSavedArticlesWithFavouriteArticles()
             }

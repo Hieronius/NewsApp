@@ -52,11 +52,11 @@ final class DetailViewController: UIViewController {
     @IBAction func detailArticleLikeButtonPressed(_ sender: UIButton) {
         if sender.imageView?.image == LikeButton.unpressed.image {
             sender.setImage(LikeButton.pressed.image, for: .normal)
-            feedViewControllerDelegate?.addToSavedLikedArticle(index: indexOfSelectedArticle!)
+            feedViewControllerDelegate?.addToSavedLikedArticle(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.likeArticleAndAddToFavourite(indexOfLikedArticle: indexOfSelectedArticle!, likedArticle: self.selectedArticle)
         } else {
             sender.setImage(LikeButton.unpressed.image, for: .normal)
-            feedViewControllerDelegate?.removeDislikedArticleFromSaved(index: indexOfSelectedArticle!)
+            feedViewControllerDelegate?.removeDislikedArticleFromSaved(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
         }
     }
