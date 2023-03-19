@@ -8,8 +8,16 @@
 import UIKit
 
 final class FeedAPIManager {
-    static let shared = FeedAPIManager()
-     let urlString = "https://newsapi.org/v2/everything?q=apple&from=2023-02-26&to=2023-02-26&sortBy=popularity&apiKey=95b0d26c32714d8ab8936e8a9f6f9b84"
+    
+    // MARK: - Public Properties
+    
+     static let shared = FeedAPIManager()
+    
+    // MARK: - Private Properties
+    
+     private let urlString = "https://newsapi.org/v2/everything?q=apple&from=2023-02-26&to=2023-02-26&sortBy=popularity&apiKey=95b0d26c32714d8ab8936e8a9f6f9b84"
+    
+    // MARK: - Public Methods
     
     func getNewsFromAPI(completion: @escaping ([Article]) -> Void) {
         let url = URL(string: urlString)!
@@ -25,6 +33,7 @@ final class FeedAPIManager {
         }
         task.resume()
     }
+    
 }
 
 
