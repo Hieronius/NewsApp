@@ -18,7 +18,7 @@ final class RegistrationViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var isRegistrationTextFieldsIsEmpty: Bool {
+    private var isRegistrationTextFieldsEmpty: Bool {
         registrationNameTextField.text?.isEmpty == true ||
         registrationEmailTextField.text?.isEmpty == true ||
         registrationPasswordTextField.text?.isEmpty == true
@@ -67,7 +67,7 @@ final class RegistrationViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func registrationLogInButtonPressed(_ sender: Any) {
-        if isRegistrationTextFieldsIsEmpty {
+        if isRegistrationTextFieldsEmpty {
             let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
             present(ac, animated: true)
