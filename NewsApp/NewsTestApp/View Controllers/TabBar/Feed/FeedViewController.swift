@@ -39,6 +39,8 @@ final class FeedViewController: UIViewController {
                 guard let self else { return }
                 self.articlesDownloadedFromAPI = values
                 self.feedTable.reloadData()
+                print(self.articlesDownloadedFromAPI.count)
+                print(self.articlesDownloadedFromAPI.count)
             }
         }
     }
