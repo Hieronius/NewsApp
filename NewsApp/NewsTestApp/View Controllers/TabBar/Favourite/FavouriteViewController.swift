@@ -42,13 +42,20 @@ final class FavouriteViewController: UIViewController {
         let tabBar = self.tabBarController
         guard let viewControllers = tabBar?.viewControllers else { return }
         
+        
         for viewController in viewControllers {
-            if let naviVC = viewController as? UINavigationController? {
-                if let feedViewController = naviVC!.getViewController(of: FeedViewController.self) as? FeedViewController {
-                    feedViewController.savedArticles = self.favouriteArticles
-                }
+            if let feedViewController = navigationController?.getViewController(of: FeedViewController.self) as? FeedViewController {
+                feedViewController.savedArticles = self.favouriteArticles
             }
         }
+        
+//        for viewController in viewControllers {
+//            if let naviVC = viewController as? UINavigationController? {
+//                if let feedViewController = naviVC!.getViewController(of: FeedViewController.self) as? FeedViewController {
+//                    feedViewController.savedArticles = self.favouriteArticles
+//                }
+//            }
+//        }
     }
     
     // MARK: - Navigation
