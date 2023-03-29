@@ -74,8 +74,8 @@ final class FeedViewController: UIViewController {
         guard let viewControllers = tabBar?.viewControllers else { return }
         
         for viewController in viewControllers {
-            if let favouriteNaviVC = viewController as? FavouriteNavigationViewController {
-                if let favouriteVC = favouriteNaviVC.viewControllers.first as? FavouriteViewController {
+            if let naviVC = viewController as? UINavigationController? {
+                if let favouriteVC = naviVC!.getViewController(of: FavouriteViewController.self) as? FavouriteViewController {
                     favouriteVC.favouriteArticles = self.savedArticles
                 }
             }
