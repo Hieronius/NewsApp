@@ -35,10 +35,7 @@ final class AuthorisationViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func authorisationlogInButtonPressed(_ sender: Any) {
-        if authorisationEmailTextField.text == testUser.userLogin && authorisationPasswordTextField.text == testUser.userPassword {
-            performSegue(withIdentifier: "TabBarSegue", sender: sender)
-
-        } else if isAuthorisationLogAndPasswordTextFieldsIsEmpty {
+        if isAuthorisationLogAndPasswordTextFieldsIsEmpty {
             let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
             present(ac, animated: true)
@@ -47,6 +44,9 @@ final class AuthorisationViewController: UIViewController {
             let ac = UIAlertController(title: "Ошибка", message: "Проверьте правильность ввода почты", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
             present(ac, animated: true)
+            
+        } else if authorisationEmailTextField.text == testUser.userLogin && authorisationPasswordTextField.text == testUser.userPassword {
+                performSegue(withIdentifier: "TabBarSegue", sender: sender)
 
         } else {
             let ac = UIAlertController(title: "Ошибка", message: "Указан неправильный логин или пароль", preferredStyle: .alert)
