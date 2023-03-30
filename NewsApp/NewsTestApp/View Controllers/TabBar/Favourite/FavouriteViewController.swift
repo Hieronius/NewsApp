@@ -21,7 +21,7 @@ final class FavouriteViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var favouriteArticles = [Article]()
+    // var favouriteArticles = [Article]()
     
     // MARK: - Lifecycle
     
