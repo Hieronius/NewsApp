@@ -724,7 +724,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-Lg-2Jq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7H-Lg-2Jq">
                                 <rect key="frame" x="15" y="380" width="345" height="140"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
@@ -741,6 +741,7 @@
                             <constraint firstItem="A1k-UK-vXo" firstAttribute="leading" secondItem="M8c-l7-chL" secondAttribute="leading" constant="15" id="Cn8-Kv-Qp8"/>
                             <constraint firstItem="W7H-Lg-2Jq" firstAttribute="top" secondItem="ZfY-gU-xT7" secondAttribute="bottom" constant="8" id="DJf-7c-L9A"/>
                             <constraint firstItem="jYh-YM-wpO" firstAttribute="top" secondItem="zt5-Qb-qza" secondAttribute="bottom" constant="4" id="FAC-C6-Ivh"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="W7H-Lg-2Jq" secondAttribute="bottom" id="PCn-Aq-WBl"/>
                             <constraint firstItem="M8c-l7-chL" firstAttribute="trailing" secondItem="ZfY-gU-xT7" secondAttribute="trailing" constant="15" id="PqY-nP-QV4"/>
                             <constraint firstItem="zt5-Qb-qza" firstAttribute="top" secondItem="M8c-l7-chL" secondAttribute="top" id="QAS-WW-kd3"/>
                             <constraint firstItem="zt5-Qb-qza" firstAttribute="trailing" secondItem="M8c-l7-chL" secondAttribute="trailing" id="XZI-st-F9t"/>
@@ -786,7 +787,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qsf-Mb-sth"/>
+        <segue reference="5mT-hG-Sdv"/>
         <segue reference="6aW-PU-FYD"/>
     </inferredMetricsTieBreakers>
     <resources>
