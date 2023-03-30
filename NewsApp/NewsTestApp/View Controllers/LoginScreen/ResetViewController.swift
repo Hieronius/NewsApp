@@ -23,19 +23,6 @@ final class ResetViewController: UIViewController {
         setupResetPasswordButton()
     }
     
-    // MARK: - Private Methods
-    
-    private func setupResetEmailTextField() {
-        resetEmailTextField.layer.cornerRadius = 20
-        resetEmailTextField.layer.borderWidth = 0.5
-        resetEmailTextField.layer.borderColor = UIColor.white.cgColor
-        resetEmailTextField.layer.masksToBounds = true
-    }
-    
-    private func setupResetPasswordButton() {
-        resetPasswordButton.layer.cornerRadius = 20
-    }
-    
     // MARK: - IBActions
     
     @IBAction private func resetPasswordButtonPressed(_ sender: Any) {
@@ -55,6 +42,19 @@ final class ResetViewController: UIViewController {
             present(ac, animated: true)
             resetEmailTextField.text = ""
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupResetEmailTextField() {
+        resetEmailTextField.layer.cornerRadius = 20
+        resetEmailTextField.layer.borderWidth = 0.5
+        resetEmailTextField.layer.borderColor = UIColor.white.cgColor
+        resetEmailTextField.layer.masksToBounds = true
+    }
+    
+    private func setupResetPasswordButton() {
+        resetPasswordButton.layer.cornerRadius = 20
     }
     
 }

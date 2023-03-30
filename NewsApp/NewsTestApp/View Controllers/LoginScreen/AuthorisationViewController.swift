@@ -32,27 +32,6 @@ final class AuthorisationViewController: UIViewController {
         setupAuthorisationLogInButton()
     }
     
-    // MARK: - Private Methods
-    
-    private func setupAuthorisationEmailTextField() {
-        authorisationEmailTextField.layer.cornerRadius = 20
-        authorisationEmailTextField.layer.borderWidth = 0.5
-        authorisationEmailTextField.layer.borderColor = UIColor.white.cgColor
-        authorisationEmailTextField.layer.masksToBounds = true
-    }
-    
-    private func setupAuthorisationPasswordTextField() {
-        authorisationPasswordTextField.layer.cornerRadius = 20
-        authorisationPasswordTextField.layer.borderWidth = 0.5
-        authorisationPasswordTextField.layer.borderColor = UIColor.white.cgColor
-        authorisationPasswordTextField.layer.masksToBounds = true
-        authorisationPasswordTextField.textContentType = .oneTimeCode
-    }
-    
-    private func setupAuthorisationLogInButton() {
-        authorisationLogInButton.layer.cornerRadius = 20
-    }
-    
     // MARK: - IBActions
     
     @IBAction private func authorisationlogInButtonPressed(_ sender: Any) {
@@ -85,6 +64,27 @@ final class AuthorisationViewController: UIViewController {
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupAuthorisationEmailTextField() {
+        authorisationEmailTextField.layer.cornerRadius = 20
+        authorisationEmailTextField.layer.borderWidth = 0.5
+        authorisationEmailTextField.layer.borderColor = UIColor.white.cgColor
+        authorisationEmailTextField.layer.masksToBounds = true
+    }
+    
+    private func setupAuthorisationPasswordTextField() {
+        authorisationPasswordTextField.layer.cornerRadius = 20
+        authorisationPasswordTextField.layer.borderWidth = 0.5
+        authorisationPasswordTextField.layer.borderColor = UIColor.white.cgColor
+        authorisationPasswordTextField.layer.masksToBounds = true
+        authorisationPasswordTextField.textContentType = .oneTimeCode
+    }
+    
+    private func setupAuthorisationLogInButton() {
+        authorisationLogInButton.layer.cornerRadius = 20
     }
     
 }

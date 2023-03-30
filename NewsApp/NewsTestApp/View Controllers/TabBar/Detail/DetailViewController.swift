@@ -35,18 +35,6 @@ final class DetailViewController: UIViewController {
         setupSpecificArticleView()
     }
     
-    // MARK: - Private Methods
-    
-    private func setupSpecificArticleView() {
-            detailArticleImageView.layer.cornerRadius = 40
-            detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
-            detailArticleLabel.text = selectedArticle.title
-            detailArticleText.text = selectedArticle.content
-            detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? defaultImage)
-            detailArticleLikeButton.setImage(currentStateOfLikeButtonOfSelectedArticle, for: .normal)
-        }
-    
     // MARK: - IBActions
         
     @IBAction func detailArticleLikeButtonPressed(_ sender: UIButton) {
@@ -60,5 +48,17 @@ final class DetailViewController: UIViewController {
             favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
         }
     }
+    
+    // MARK: - Private Methods
+    
+    private func setupSpecificArticleView() {
+            detailArticleImageView.layer.cornerRadius = 40
+            detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
+            detailArticleLabel.text = selectedArticle.title
+            detailArticleText.text = selectedArticle.content
+            detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? defaultImage)
+            detailArticleLikeButton.setImage(currentStateOfLikeButtonOfSelectedArticle, for: .normal)
+        }
     
 }

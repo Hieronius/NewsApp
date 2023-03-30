@@ -37,6 +37,24 @@ final class RegistrationViewController: UIViewController {
         setupRegistrationLogInButton()
     }
     
+    // MARK: - IBActions
+    
+    @IBAction private func registrationLogInButtonPressed(_ sender: Any) {
+        if isRegistrationTextFieldsEmpty {
+            let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+            
+        } else if isValidEmail(registrationEmailTextField.text!) == false {
+            let ac = UIAlertController(title: "Ошибка", message: "Проверьте правильность ввода почты", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+            
+        } else {
+            performSegue(withIdentifier: "RegistrationToTabBarSegue", sender: sender)
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func setupRegistrationNameTextField() {
@@ -62,24 +80,6 @@ final class RegistrationViewController: UIViewController {
     
     private func setupRegistrationLogInButton() {
         registrationLogInButton.layer.cornerRadius = 20
-    }
-    
-    // MARK: - IBActions
-    
-    @IBAction private func registrationLogInButtonPressed(_ sender: Any) {
-        if isRegistrationTextFieldsEmpty {
-            let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(ac, animated: true)
-            
-        } else if isValidEmail(registrationEmailTextField.text!) == false {
-            let ac = UIAlertController(title: "Ошибка", message: "Проверьте правильность ввода почты", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(ac, animated: true)
-            
-        } else {
-            performSegue(withIdentifier: "RegistrationToTabBarSegue", sender: sender)
-        }
     }
     
 }

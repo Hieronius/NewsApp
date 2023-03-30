@@ -32,6 +32,17 @@ final class ProfileViewController: UIViewController {
         setupProfileEmailField()
     }
     
+    // MARK: - IBActions
+    
+    @IBAction private func logOutButtonPressed(_ sender: Any) {
+        let ac = UIAlertController(title: "Выход", message: "Вы уверены, что хотите выйти из аккаунта?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Отмена", style: .default))
+        ac.addAction(UIAlertAction(title: "Выйти", style: .destructive, handler: { action in
+            self.performSegue(withIdentifier: "doUnwind", sender: self)
+        }))
+        self.present(ac, animated: true)
+    }
+    
     // MARK: - Private Methods
     
     private func setupProfileImageView() {
@@ -53,17 +64,6 @@ final class ProfileViewController: UIViewController {
         profileEmailFeild.layer.borderWidth = 0.5
         profileEmailFeild.layer.borderColor = backgroundColorForViewControllersFromFigma.cgColor
         profileEmailFeild.layer.masksToBounds = true
-    }
-    
-    // MARK: - IBActions
-    
-    @IBAction private func logOutButtonPressed(_ sender: Any) {
-        let ac = UIAlertController(title: "Выход", message: "Вы уверены, что хотите выйти из аккаунта?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Отмена", style: .default))
-        ac.addAction(UIAlertAction(title: "Выйти", style: .destructive, handler: { action in
-            self.performSegue(withIdentifier: "doUnwind", sender: self)
-        }))
-        self.present(ac, animated: true)
     }
     
 }
