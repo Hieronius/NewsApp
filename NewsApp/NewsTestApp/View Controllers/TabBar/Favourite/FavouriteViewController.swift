@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol FavouriteViewControllerDelegate: AnyObject {
-    
-    func likeArticleAndAddToFavourite(indexOfLikedArticle: IndexPath, likedArticle: Article)
-    func dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: IndexPath)
-}
-
 final class FavouriteViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private weak var favouriteCollectionView: UICollectionView!
+    @IBOutlet weak var favouriteCollectionView: UICollectionView!
     
     // MARK: - Lifecycle
     
@@ -104,21 +98,3 @@ extension FavouriteViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width * 0.44, height: height * 0.23)
     }
 }
-
-// MARK: - FavouriteViewControllerDelegate
-    
-extension FavouriteViewController: FavouriteViewControllerDelegate {
-    func likeArticleAndAddToFavourite(indexOfLikedArticle: IndexPath, likedArticle: Article) {
-        if let collectionCell = favouriteCollectionView.cellForItem(at: indexOfLikedArticle) as? FavouriteCollectionViewCell {
-            collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
-        }
-    }
-
-    func dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: IndexPath) {
-        if let collectionCell = favouriteCollectionView.cellForItem(at: indexOfDislikedArticle) as? FavouriteCollectionViewCell {
-            collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-        }
-    }
-
-}
-    

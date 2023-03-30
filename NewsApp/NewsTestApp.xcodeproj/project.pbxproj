@@ -14,6 +14,10 @@
 		DD7A495E29B91161008D1A93 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */; };
 		DD81802F29D47CF200C4DF1F /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81802E29D47CF200C4DF1F /* UINavigationController+Extension.swift */; };
 		DD81803229D5D86600C4DF1F /* FavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803129D5D86600C4DF1F /* FavouriteService.swift */; };
+		DD81803529D6382200C4DF1F /* FeedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803429D6382200C4DF1F /* FeedViewControllerDelegate.swift */; };
+		DD81803729D6383100C4DF1F /* FavouriteViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803629D6383100C4DF1F /* FavouriteViewControllerDelegate.swift */; };
+		DD81803929D6388C00C4DF1F /* FeedViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803829D6388C00C4DF1F /* FeedViewController+Extension.swift */; };
+		DD81803B29D638ED00C4DF1F /* FavouriteViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803A29D638ED00C4DF1F /* FavouriteViewController+Extension.swift */; };
 		DD82224E29A79AD900E830C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82224D29A79AD900E830C1 /* AppDelegate.swift */; };
 		DD82225029A79AD900E830C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82224F29A79AD900E830C1 /* SceneDelegate.swift */; };
 		DD82225229A79AD900E830C1 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82225129A79AD900E830C1 /* AuthorisationViewController.swift */; };
@@ -45,6 +49,10 @@
 		DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD81802E29D47CF200C4DF1F /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		DD81803129D5D86600C4DF1F /* FavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteService.swift; sourceTree = "<group>"; };
+		DD81803429D6382200C4DF1F /* FeedViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DD81803629D6383100C4DF1F /* FavouriteViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DD81803829D6388C00C4DF1F /* FeedViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+Extension.swift"; sourceTree = "<group>"; };
+		DD81803A29D638ED00C4DF1F /* FavouriteViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD82224A29A79AD900E830C1 /* NewsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD82224D29A79AD900E830C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD82224F29A79AD900E830C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +179,15 @@
 			path = FavouriteViewModel;
 			sourceTree = "<group>";
 		};
+		DD81803329D6380700C4DF1F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DD81803429D6382200C4DF1F /* FeedViewControllerDelegate.swift */,
+				DD81803629D6383100C4DF1F /* FavouriteViewControllerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		DD82224129A79AD900E830C1 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +207,7 @@
 		DD82224C29A79AD900E830C1 /* NewsTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				DD81803329D6380700C4DF1F /* Protocols */,
 				DD82226329A79C8A00E830C1 /* View Controllers */,
 				DD82226529A79F5000E830C1 /* Models */,
 				DD05D98329C49C5F00E14F03 /* Views */,
@@ -281,6 +299,8 @@
 				DD88C00629C0E6460008D76D /* Article+Extension.swift */,
 				DDE211B029C24CE500EC9A00 /* String+Extension.swift */,
 				DD81802E29D47CF200C4DF1F /* UINavigationController+Extension.swift */,
+				DD81803829D6388C00C4DF1F /* FeedViewController+Extension.swift */,
+				DD81803A29D638ED00C4DF1F /* FavouriteViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,7 +388,10 @@
 				DD78E07629AA2D950055E656 /* FeedAPIManager.swift in Sources */,
 				DD82226729A7A12900E830C1 /* RegistrationViewController.swift in Sources */,
 				DD78E07329AA2D6A0055E656 /* FeedTableViewCell.swift in Sources */,
+				DD81803B29D638ED00C4DF1F /* FavouriteViewController+Extension.swift in Sources */,
+				DD81803929D6388C00C4DF1F /* FeedViewController+Extension.swift in Sources */,
 				DD88C00529C0E3A20008D76D /* DefaultArticleImage.swift in Sources */,
+				DD81803729D6383100C4DF1F /* FavouriteViewControllerDelegate.swift in Sources */,
 				DDD1B89E29ADFCE800FEC5B2 /* FeedDataFromAPI.swift in Sources */,
 				DD82225029A79AD900E830C1 /* SceneDelegate.swift in Sources */,
 				DD82226F29A7AC3D00E830C1 /* FavouriteViewController.swift in Sources */,
@@ -378,6 +401,7 @@
 				DD82226B29A7AB7200E830C1 /* FeedViewController.swift in Sources */,
 				DD82227129A7ACDA00E830C1 /* ProfileViewController.swift in Sources */,
 				DD88C00029BE55BA0008D76D /* ProfileNavigationViewController.swift in Sources */,
+				DD81803529D6382200C4DF1F /* FeedViewControllerDelegate.swift in Sources */,
 				DD82226929A7A83500E830C1 /* ResetViewController.swift in Sources */,
 				DDE211B129C24CE500EC9A00 /* String+Extension.swift in Sources */,
 				DD82226D29A7ABCE00E830C1 /* MapViewController.swift in Sources */,

@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol FeedViewControllerDelegate: AnyObject {
-    
-    func addToSavedLikedArticle(articleIndex: IndexPath)
-    func removeDislikedArticleFromSaved(articleIndex: IndexPath)
-}
-
 final class FeedViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private weak var feedTable: UITableView!
+    @IBOutlet weak var feedTable: UITableView!
     
     // MARK: - Public Properties
     
@@ -131,22 +125,4 @@ extension FeedViewController: UITableViewDataSource {
          cell.layer.cornerRadius = 25
          return cell
     }
-}
-
-// MARK: - FeedViewControllerDelegate
-
-extension FeedViewController: FeedViewControllerDelegate {
-
-    func addToSavedLikedArticle(articleIndex: IndexPath) {
-        if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
-            cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .normal)
-        }
-    }
-
-    func removeDislikedArticleFromSaved(articleIndex: IndexPath) {
-        if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
-            cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-        }
-    }
-
 }
