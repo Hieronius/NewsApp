@@ -19,11 +19,6 @@ final class FeedViewController: UIViewController {
     
     @IBOutlet private weak var feedTable: UITableView!
     
-    // MARK: - Private Properties
-    
-    private let numbersOfCellsInUITableViewSection = 1
-    private let heightForHeaderOfTableViewSection: CGFloat = 3
-    
     // MARK: - Public Properties
     
     var articlesDownloadedFromAPI = [Article]()
@@ -113,11 +108,11 @@ extension FeedViewController: UITableViewDelegate {
      }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return numbersOfCellsInUITableViewSection
+         return 1
      }
     
      func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return heightForHeaderOfTableViewSection
+         return 3
      }
 }
 
