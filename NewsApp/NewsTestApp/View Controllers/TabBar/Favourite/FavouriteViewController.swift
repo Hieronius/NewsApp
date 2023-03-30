@@ -19,10 +19,6 @@ final class FavouriteViewController: UIViewController {
     
     @IBOutlet private weak var favouriteCollectionView: UICollectionView!
     
-    // MARK: - Public Properties
-    
-    // var favouriteArticles = [Article]()
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -33,21 +29,8 @@ final class FavouriteViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
         favouriteCollectionView.reloadData()
-    }
-    
-    // MARK: - Public Methods
-    
-    func matchFavouriteArticlesWithSavedArticles() {
-        let tabBar = self.tabBarController
-        guard let viewControllers = tabBar?.viewControllers else { return }
-        
-        
-        for viewController in viewControllers {
-            if let feedViewController = navigationController?.getViewController(of: FeedViewController.self) as? FeedViewController {
-                feedViewController.savedArticles = self.favouriteArticles
-            }
-        }
     }
     
     // MARK: - Navigation
@@ -56,7 +39,7 @@ final class FavouriteViewController: UIViewController {
         let detailViewController = segue.destination as! DetailViewController
         guard let indexPath = favouriteCollectionView.indexPathsForSelectedItems?[0] else { return }
         
-        detailViewController.selectedArticle = favouriteArticles[indexPath.row]
+        detailViewController.selectedArticle = FavouriteService.shared.favouriteArticles[indexPath.row]
         detailViewController.indexOfSelectedArticle = indexPath
         if let favouriteCollectionCell = favouriteCollectionView.cellForItem(at: indexPath) as? FavouriteCollectionViewCell {
             detailViewController.currentStateOfLikeButtonOfSelectedArticle = favouriteCollectionCell.favouriteArticleCollectionLikeButton.imageView?.image
@@ -67,21 +50,21 @@ final class FavouriteViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func favouriteArticleLikeButtonPressed(_ sender: UIButton) {
+        
         let likedArticleIndex = sender.tag
-        let likedArticle = favouriteArticles[likedArticleIndex]
+        let likedArticle = FavouriteService.shared.favouriteArticles[likedArticleIndex]
         if sender.imageView?.image == LikeButton.unpressed.image {
             sender.setImage(LikeButton.pressed.image, for: .normal)
-            favouriteArticles.append(likedArticle)
+            FavouriteService.shared.favouriteArticles.append(likedArticle)
             viewDidAppear(true)
         } else {
             sender.setImage(LikeButton.unpressed.image, for: .normal)
             
-            if let index = favouriteArticles.firstIndex(of: likedArticle) {
-                self.favouriteArticles.remove(at: index)
+            if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
+                FavouriteService.shared.favouriteArticles.remove(at: index)
                 viewDidAppear(true)
             }
         }
-        matchFavouriteArticlesWithSavedArticles()
     }
     
 }
@@ -92,7 +75,7 @@ final class FavouriteViewController: UIViewController {
 
 extension FavouriteViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return favouriteArticles.count
+        return FavouriteService.shared.favouriteArticles.count
     }
 }
 
@@ -101,9 +84,10 @@ extension FavouriteViewController: UICollectionViewDelegate {
 extension FavouriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! FavouriteCollectionViewCell
-        collectionCell.favouriteArticleCollectionDateLabel.text = favouriteArticles[indexPath.row].publishedAt.formateArticleDate()
-            collectionCell.favouriteArticleCollectionArticleLabel.text = favouriteArticles[indexPath.row].title
-            collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: favouriteArticles[indexPath.row].urlToImage ?? defaultImage)
+         
+        collectionCell.favouriteArticleCollectionDateLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].publishedAt.formateArticleDate()
+        collectionCell.favouriteArticleCollectionArticleLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].title
+        collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: FavouriteService.shared.favouriteArticles[indexPath.row].urlToImage ?? defaultImage)
             collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
             collectionCell.favouriteArticleCollectionLikeButton.tag = indexPath.row
             collectionCell.layer.cornerRadius = 20
@@ -120,26 +104,19 @@ extension FavouriteViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - FavouriteViewControllerDelegate
-
+    
 extension FavouriteViewController: FavouriteViewControllerDelegate {
     func likeArticleAndAddToFavourite(indexOfLikedArticle: IndexPath, likedArticle: Article) {
         if let collectionCell = favouriteCollectionView.cellForItem(at: indexOfLikedArticle) as? FavouriteCollectionViewCell {
             collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
-            favouriteArticles.append(likedArticle)
-            
-            matchFavouriteArticlesWithSavedArticles()
         }
     }
-    
+
     func dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: IndexPath) {
         if let collectionCell = favouriteCollectionView.cellForItem(at: indexOfDislikedArticle) as? FavouriteCollectionViewCell {
             collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-            if let indexOfSavedArticle = favouriteArticles.firstIndex(of: favouriteArticles[indexOfDislikedArticle.row]) {
-                self.favouriteArticles.remove(at: indexOfSavedArticle)
-            }
-            matchFavouriteArticlesWithSavedArticles()
         }
     }
-    
+
 }
     

@@ -26,7 +26,6 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var savedArticles = [Article]()
     var articlesDownloadedFromAPI = [Article]()
     
     // MARK: - Lifecycle
@@ -57,26 +56,14 @@ final class FeedViewController: UIViewController {
     func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
         var arrayOfArticlesToChange = [Int]()
         for article in articlesDownloadedFromAPI {
-            if !savedArticles.contains(article) {
+            if !FavouriteService.shared.favouriteArticles.contains(article) {
                 arrayOfArticlesToChange.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
             }
         }
-        
+
         for index in arrayOfArticlesToChange {
             if let cell = feedTable.cellForRow(at: IndexPath(row: 0, section: index)) as? FeedTableViewCell {
                 cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-            }
-        }
-    }
-    
-    func matchSavedArticlesWithFavouriteArticles() {
-        let tabBar = self.tabBarController
-        guard let viewControllers = tabBar?.viewControllers else { return }
-        
-        
-        for viewController in viewControllers {
-            if let favouriteVC = navigationController?.getViewController(of: FavouriteViewController.self) as? FavouriteViewController {
-                favouriteVC.favouriteArticles = self.savedArticles
             }
         }
     }
@@ -88,6 +75,7 @@ final class FeedViewController: UIViewController {
         guard let indexPath = feedTable.indexPathForSelectedRow else { return }
         vc.selectedArticle = articlesDownloadedFromAPI[indexPath.section]
         vc.indexOfSelectedArticle = indexPath
+        
         if let articleCell = feedTable.cellForRow(at: indexPath) as? FeedTableViewCell {
             vc.currentStateOfLikeButtonOfSelectedArticle = articleCell.feedArticleLikeButton.imageView?.image
         }
@@ -101,14 +89,15 @@ final class FeedViewController: UIViewController {
         let likedArticle = articlesDownloadedFromAPI[likedArticleIndex]
         if sender.imageView?.image == LikeButton.unpressed.image {
             sender.setImage(LikeButton.pressed.image, for: .normal)
-            savedArticles.append(likedArticle)
+            FavouriteService.shared.favouriteArticles.append(likedArticle)
+            print(FavouriteService.shared.favouriteArticles.count)
         } else {
             sender.setImage(LikeButton.unpressed.image, for: .normal)
-            if let index = savedArticles.firstIndex(of: likedArticle) {
-                self.savedArticles.remove(at: index)
+            if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
+                FavouriteService.shared.favouriteArticles.remove(at: index)
+                print(FavouriteService.shared.favouriteArticles.count)
             }
         }
-        matchSavedArticlesWithFavouriteArticles()
     }
         
 }
@@ -152,24 +141,17 @@ extension FeedViewController: UITableViewDataSource {
 // MARK: - FeedViewControllerDelegate
 
 extension FeedViewController: FeedViewControllerDelegate {
-    
+
     func addToSavedLikedArticle(articleIndex: IndexPath) {
         if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
             cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .normal)
-            savedArticles.append(articlesDownloadedFromAPI[articleIndex.section])
-            matchSavedArticlesWithFavouriteArticles()
         }
     }
-    
+
     func removeDislikedArticleFromSaved(articleIndex: IndexPath) {
         if let cell = feedTable.cellForRow(at: articleIndex) as? FeedTableViewCell {
             cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-            
-            if let indexOfSavedArticle = savedArticles.firstIndex(of: articlesDownloadedFromAPI[articleIndex.section]) {
-                self.savedArticles.remove(at: indexOfSavedArticle)
-                matchSavedArticlesWithFavouriteArticles()
-            }
         }
     }
-    
+
 }
