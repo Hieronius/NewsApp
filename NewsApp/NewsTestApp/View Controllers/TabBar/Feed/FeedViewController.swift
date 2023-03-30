@@ -79,15 +79,6 @@ final class FeedViewController: UIViewController {
                 favouriteVC.favouriteArticles = self.savedArticles
             }
         }
-        
-        
-//        for viewController in viewControllers {
-//            if let naviVC = viewController as? UINavigationController? {
-//                if let favouriteVC = naviVC!.getViewController(of: FavouriteViewController.self) as? FavouriteViewController {
-//                    favouriteVC.favouriteArticles = self.savedArticles
-//                }
-//            }
-//        }
     }
     
     // MARK: - Navigation

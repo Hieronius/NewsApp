@@ -48,14 +48,6 @@ final class FavouriteViewController: UIViewController {
                 feedViewController.savedArticles = self.favouriteArticles
             }
         }
-        
-//        for viewController in viewControllers {
-//            if let naviVC = viewController as? UINavigationController? {
-//                if let feedViewController = naviVC!.getViewController(of: FeedViewController.self) as? FeedViewController {
-//                    feedViewController.savedArticles = self.favouriteArticles
-//                }
-//            }
-//        }
     }
     
     // MARK: - Navigation
