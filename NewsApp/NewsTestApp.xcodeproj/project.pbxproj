@@ -12,7 +12,6 @@
 		DD78E07629AA2D950055E656 /* FeedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E07529AA2D950055E656 /* FeedAPIManager.swift */; };
 		DD7A493A29B8D023008D1A93 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7A493929B8D023008D1A93 /* DetailViewController.swift */; };
 		DD7A495E29B91161008D1A93 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */; };
-		DD7A498029BB9255008D1A93 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7A497F29BB9255008D1A93 /* TabBarViewController.swift */; };
 		DD81802F29D47CF200C4DF1F /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81802E29D47CF200C4DF1F /* UINavigationController+Extension.swift */; };
 		DD81803229D5D86600C4DF1F /* FavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803129D5D86600C4DF1F /* FavouriteService.swift */; };
 		DD82224E29A79AD900E830C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82224D29A79AD900E830C1 /* AppDelegate.swift */; };
@@ -27,8 +26,6 @@
 		DD82226D29A7ABCE00E830C1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82226C29A7ABCE00E830C1 /* MapViewController.swift */; };
 		DD82226F29A7AC3D00E830C1 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */; };
 		DD82227129A7ACDA00E830C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82227029A7ACDA00E830C1 /* ProfileViewController.swift */; };
-		DD88BFF829BDF5D40008D76D /* FeedNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88BFF729BDF5D40008D76D /* FeedNavigationViewController.swift */; };
-		DD88BFFE29BE555B0008D76D /* FavouriteNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88BFFD29BE555B0008D76D /* FavouriteNavigationViewController.swift */; };
 		DD88C00029BE55BA0008D76D /* ProfileNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88BFFF29BE55BA0008D76D /* ProfileNavigationViewController.swift */; };
 		DD88C00329C0CDE80008D76D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00229C0CDE80008D76D /* UserData.swift */; };
 		DD88C00529C0E3A20008D76D /* DefaultArticleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00429C0E3A20008D76D /* DefaultArticleImage.swift */; };
@@ -46,7 +43,6 @@
 		DD78E07529AA2D950055E656 /* FeedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIManager.swift; sourceTree = "<group>"; };
 		DD7A493929B8D023008D1A93 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DD7A495D29B91161008D1A93 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
-		DD7A497F29BB9255008D1A93 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DD81802E29D47CF200C4DF1F /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		DD81803129D5D86600C4DF1F /* FavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteService.swift; sourceTree = "<group>"; };
 		DD82224A29A79AD900E830C1 /* NewsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +59,6 @@
 		DD82226C29A7ABCE00E830C1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		DD82227029A7ACDA00E830C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DD88BFF729BDF5D40008D76D /* FeedNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavigationViewController.swift; sourceTree = "<group>"; };
-		DD88BFFD29BE555B0008D76D /* FavouriteNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteNavigationViewController.swift; sourceTree = "<group>"; };
 		DD88BFFF29BE55BA0008D76D /* ProfileNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationViewController.swift; sourceTree = "<group>"; };
 		DD88C00229C0CDE80008D76D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		DD88C00429C0E3A20008D76D /* DefaultArticleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultArticleImage.swift; sourceTree = "<group>"; };
@@ -107,7 +101,6 @@
 		DD78E07129AA2D3C0055E656 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				DD88BFF729BDF5D40008D76D /* FeedNavigationViewController.swift */,
 				DD82226A29A7AB7200E830C1 /* FeedViewController.swift */,
 			);
 			path = Feed;
@@ -126,7 +119,6 @@
 		DD78E07729AA3BDA0055E656 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				DD7A497F29BB9255008D1A93 /* TabBarViewController.swift */,
 				DD78E07129AA2D3C0055E656 /* Feed */,
 				DDD1B89F29ADFE5100FEC5B2 /* Detail */,
 				DD78E0A129AB6F3A0055E656 /* Map */,
@@ -157,7 +149,6 @@
 		DD78E0A229AB6F460055E656 /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
-				DD88BFFD29BE555B0008D76D /* FavouriteNavigationViewController.swift */,
 				DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */,
 			);
 			path = Favourite;
@@ -372,7 +363,6 @@
 				DD82225229A79AD900E830C1 /* AuthorisationViewController.swift in Sources */,
 				DDF5AD6F29A90D3A00FA48F9 /* ViewController+Extension.swift in Sources */,
 				DD82224E29A79AD900E830C1 /* AppDelegate.swift in Sources */,
-				DD7A498029BB9255008D1A93 /* TabBarViewController.swift in Sources */,
 				DD78E06F29A9303E0055E656 /* Coordinates.swift in Sources */,
 				DD7A495E29B91161008D1A93 /* FavouriteCollectionViewCell.swift in Sources */,
 				DD78E07629AA2D950055E656 /* FeedAPIManager.swift in Sources */,
@@ -383,9 +373,7 @@
 				DD82225029A79AD900E830C1 /* SceneDelegate.swift in Sources */,
 				DD82226F29A7AC3D00E830C1 /* FavouriteViewController.swift in Sources */,
 				DDD1B89C29ADFC5D00FEC5B2 /* UIImageView+Extension.swift in Sources */,
-				DD88BFFE29BE555B0008D76D /* FavouriteNavigationViewController.swift in Sources */,
 				DD88C00729C0E6460008D76D /* Article+Extension.swift in Sources */,
-				DD88BFF829BDF5D40008D76D /* FeedNavigationViewController.swift in Sources */,
 				DD88C00329C0CDE80008D76D /* UserData.swift in Sources */,
 				DD82226B29A7AB7200E830C1 /* FeedViewController.swift in Sources */,
 				DD82227129A7ACDA00E830C1 /* ProfileViewController.swift in Sources */,
