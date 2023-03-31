@@ -8,16 +8,10 @@
 import UIKit
 
 struct UserData {
-    var userName: String
-    var userLogin: String
-    var userPassword: String
-    var userID: Int
-    var userTestPhoto: UIImage
+    let userName: String
+    let userLogin: String
+    let userPassword: String
+    let userID: Int
+    let userTestPhoto: UIImage
 }
-
-var testUser = UserData(userName: "Иван",
-                        userLogin: "test@mail.ru",
-                        userPassword: "12345",
-                        userID: 252553,
-                        userTestPhoto: UIImage(named: "image 1")!)
                         

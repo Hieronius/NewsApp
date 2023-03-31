@@ -9,6 +9,8 @@ import Foundation
 
 struct MoscowCityBuildings {
     
+    // MARK: - Public Properties
+    
     static let shared = MoscowCityBuildings()
     
     let towerUnderWater = Coordinates(latitude: 55.746854, longtitude: 37.536791)

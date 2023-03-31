@@ -46,12 +46,12 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupProfileImageView() {
-        profileImageView.image = testUser.userTestPhoto
+        profileImageView.image = TestUser.shared.testUser.userTestPhoto
         profileImageView.layer.cornerRadius = 50
     }
     
     private func setupProfileNameField() {
-        profileNameField.text = " \(testUser.userName)"
+        profileNameField.text = " \(TestUser.shared.testUser.userName)"
         profileNameField.layer.cornerRadius = 20
         profileNameField.layer.borderWidth = 0.5
         profileNameField.layer.borderColor = backgroundColorForViewControllersFromFigma.cgColor
@@ -59,7 +59,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupProfileEmailField() {
-        profileEmailFeild.text = " \(testUser.userLogin)"
+        profileEmailFeild.text = " \(TestUser.shared.testUser.userLogin)"
         profileEmailFeild.layer.cornerRadius = 20
         profileEmailFeild.layer.borderWidth = 0.5
         profileEmailFeild.layer.borderColor = backgroundColorForViewControllersFromFigma.cgColor
