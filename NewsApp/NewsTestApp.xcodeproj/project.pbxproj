@@ -33,7 +33,7 @@
 		DD82226F29A7AC3D00E830C1 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */; };
 		DD82227129A7ACDA00E830C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82227029A7ACDA00E830C1 /* ProfileViewController.swift */; };
 		DD88C00329C0CDE80008D76D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00229C0CDE80008D76D /* UserData.swift */; };
-		DD88C00529C0E3A20008D76D /* DefaultArticleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00429C0E3A20008D76D /* DefaultArticleImage.swift */; };
+		DD88C00529C0E3A20008D76D /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00429C0E3A20008D76D /* ImageService.swift */; };
 		DD88C00729C0E6460008D76D /* Article+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88C00629C0E6460008D76D /* Article+Extension.swift */; };
 		DDD1B89C29ADFC5D00FEC5B2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1B89B29ADFC5D00FEC5B2 /* UIImageView+Extension.swift */; };
 		DDD1B89E29ADFCE800FEC5B2 /* FeedDataFromAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1B89D29ADFCE800FEC5B2 /* FeedDataFromAPI.swift */; };
@@ -71,7 +71,7 @@
 		DD82226E29A7AC3D00E830C1 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		DD82227029A7ACDA00E830C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DD88C00229C0CDE80008D76D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		DD88C00429C0E3A20008D76D /* DefaultArticleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultArticleImage.swift; sourceTree = "<group>"; };
+		DD88C00429C0E3A20008D76D /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		DD88C00629C0E6460008D76D /* Article+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+Extension.swift"; sourceTree = "<group>"; };
 		DDD1B89B29ADFC5D00FEC5B2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		DDD1B89D29ADFCE800FEC5B2 /* FeedDataFromAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataFromAPI.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			children = (
 				DD78E07529AA2D950055E656 /* FeedAPIManager.swift */,
 				DDD1B89D29ADFCE800FEC5B2 /* FeedDataFromAPI.swift */,
-				DD88C00429C0E3A20008D76D /* DefaultArticleImage.swift */,
+				DD88C00429C0E3A20008D76D /* ImageService.swift */,
 			);
 			path = FeedViewModel;
 			sourceTree = "<group>";
@@ -261,9 +261,9 @@
 		DD82226529A79F5000E830C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DD81803029D5D82700C4DF1F /* FavouriteViewModel */,
 				DD88C00129C0CDD30008D76D /* AuthorisationModel */,
 				DD78E07429AA2D790055E656 /* FeedViewModel */,
+				DD81803029D5D82700C4DF1F /* FavouriteViewModel */,
 				DD78E07029AA141A0055E656 /* MapViewModel */,
 			);
 			path = Models;
@@ -395,7 +395,7 @@
 				DD81803B29D638ED00C4DF1F /* FavouriteViewController+Extension.swift in Sources */,
 				DD81803929D6388C00C4DF1F /* FeedViewController+Extension.swift in Sources */,
 				DD81804129D72E4E00C4DF1F /* TestUser.swift in Sources */,
-				DD88C00529C0E3A20008D76D /* DefaultArticleImage.swift in Sources */,
+				DD88C00529C0E3A20008D76D /* ImageService.swift in Sources */,
 				DD81803729D6383100C4DF1F /* FavouriteViewControllerDelegate.swift in Sources */,
 				DDD1B89E29ADFCE800FEC5B2 /* FeedDataFromAPI.swift in Sources */,
 				DD82225029A79AD900E830C1 /* SceneDelegate.swift in Sources */,

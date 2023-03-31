@@ -62,7 +62,7 @@ final class DetailViewController: UIViewController {
             detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
             detailArticleLabel.text = selectedArticle.title
             detailArticleText.text = selectedArticle.content
-            detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? defaultImage)
+            detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? ImageService.defaultImage)
             detailArticleLikeButton.setImage(currentStateOfLikeButtonOfSelectedArticle, for: .normal)
         }
     

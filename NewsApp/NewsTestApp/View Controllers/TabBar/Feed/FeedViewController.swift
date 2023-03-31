@@ -104,7 +104,7 @@ extension FeedViewController: UITableViewDataSource {
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
-         cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.row].urlToImage ?? defaultImage)
+         cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.row].urlToImage ?? ImageService.defaultImage)
          cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
          cell.feedArticleLikeButton.tag = indexPath.row
          cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.row].publishedAt.formateArticleDate()

@@ -81,7 +81,7 @@ extension FavouriteViewController: UICollectionViewDataSource {
          
         collectionCell.favouriteArticleCollectionDateLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].publishedAt.formateArticleDate()
         collectionCell.favouriteArticleCollectionArticleLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].title
-        collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: FavouriteService.shared.favouriteArticles[indexPath.row].urlToImage ?? defaultImage)
+        collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: FavouriteService.shared.favouriteArticles[indexPath.row].urlToImage ?? ImageService.defaultImage)
             collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
             collectionCell.favouriteArticleCollectionLikeButton.tag = indexPath.row
             collectionCell.layer.cornerRadius = 20
