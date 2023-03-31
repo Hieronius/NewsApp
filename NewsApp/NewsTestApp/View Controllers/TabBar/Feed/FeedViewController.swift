@@ -76,12 +76,11 @@ final class FeedViewController: UIViewController {
         if sender.imageView?.image == LikeButton.unpressed.image {
             sender.setImage(LikeButton.pressed.image, for: .normal)
             FavouriteService.shared.favouriteArticles.append(likedArticle)
-            print(FavouriteService.shared.favouriteArticles.count)
+            
         } else {
             sender.setImage(LikeButton.unpressed.image, for: .normal)
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
-                print(FavouriteService.shared.favouriteArticles.count)
             }
         }
     }

@@ -45,7 +45,7 @@ final class AuthorisationViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Ok", style: .default))
             present(ac, animated: true)
 
-        } else if authorisationEmailTextField.text == TestUser.shared.testUser.userLogin && authorisationPasswordTextField.text == TestUser.shared.testUser.userPassword {
+        } else if authorisationEmailTextField.text == TestUser.testUser.userLogin && authorisationPasswordTextField.text == TestUser.testUser.userPassword {
                 performSegue(withIdentifier: "TabBarSegue", sender: sender)
 
         } else {

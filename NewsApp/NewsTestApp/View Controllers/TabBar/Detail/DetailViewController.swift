@@ -43,14 +43,13 @@ final class DetailViewController: UIViewController {
             feedViewControllerDelegate?.addToSavedLikedArticle(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.likeArticleAndAddToFavourite(indexOfLikedArticle: indexOfSelectedArticle!, likedArticle: self.selectedArticle)
             FavouriteService.shared.favouriteArticles.append(selectedArticle)
-            print(FavouriteService.shared.favouriteArticles.count)
+            
         } else {
             sender.setImage(LikeButton.unpressed.image, for: .normal)
             feedViewControllerDelegate?.removeDislikedArticleFromSaved(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: selectedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
-                print(FavouriteService.shared.favouriteArticles.count)
             }
         }
     }
