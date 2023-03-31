@@ -27,8 +27,6 @@ final class FeedViewController: UIViewController {
                 guard let self else { return }
                 self.articlesDownloadedFromAPI = values
                 self.feedTable.reloadData()
-                print(self.articlesDownloadedFromAPI.count)
-                print(self.articlesDownloadedFromAPI.count)
             }
         }
     }
@@ -49,9 +47,8 @@ final class FeedViewController: UIViewController {
                 arrayOfArticlesToChange.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
             }
         }
-
         for index in arrayOfArticlesToChange {
-            if let cell = feedTable.cellForRow(at: IndexPath(row: 0, section: index)) as? FeedTableViewCell {
+            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
                 cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
             }
         }
@@ -62,7 +59,7 @@ final class FeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! DetailViewController
         guard let indexPath = feedTable.indexPathForSelectedRow else { return }
-        vc.selectedArticle = articlesDownloadedFromAPI[indexPath.section]
+        vc.selectedArticle = articlesDownloadedFromAPI[indexPath.row]
         vc.indexOfSelectedArticle = indexPath
         
         if let articleCell = feedTable.cellForRow(at: indexPath) as? FeedTableViewCell {
@@ -97,16 +94,8 @@ final class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate {
     
-     func numberOfSections(in tableView: UITableView) -> Int {
-         self.articlesDownloadedFromAPI.count
-     }
-    
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return 1
-     }
-    
-     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 3
+         return articlesDownloadedFromAPI.count
      }
 }
 
@@ -116,13 +105,18 @@ extension FeedViewController: UITableViewDataSource {
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
-         cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.section].urlToImage ?? defaultImage)
+         cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.row].urlToImage ?? defaultImage)
          cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
-         cell.feedArticleLikeButton.tag = indexPath.section
-         cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.section].publishedAt.formateArticleDate()
-         cell.feedArticleLabel.text = articlesDownloadedFromAPI[indexPath.section].title
-         cell.feedArticleText.text = articlesDownloadedFromAPI[indexPath.section].description
+         cell.feedArticleLikeButton.tag = indexPath.row
+         cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.row].publishedAt.formateArticleDate()
+         cell.feedArticleLabel.text = articlesDownloadedFromAPI[indexPath.row].title
+         cell.feedArticleText.text = articlesDownloadedFromAPI[indexPath.row].description
          cell.layer.cornerRadius = 25
+         cell.feedCellView.layer.cornerRadius = 25
+         
+         let backgroundView = UIView()
+         backgroundView.backgroundColor = .clear
+         cell.selectedBackgroundView = backgroundView
          return cell
     }
 }

@@ -16,4 +16,6 @@ final class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var feedArticleLabel: UILabel!
     @IBOutlet weak var feedArticleText: UILabel!
     @IBOutlet weak var feedArticleLikeButton: UIButton!
+    @IBOutlet weak var feedCellView: UIView!
+    
 }

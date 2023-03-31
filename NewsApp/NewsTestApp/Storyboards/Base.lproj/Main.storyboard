@@ -574,7 +574,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfM-d5-5O5" userLabel="cellView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="289"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="273"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x66-wq-a2N">
                                                             <rect key="frame" x="0.0" y="0.0" width="355" height="132"/>
@@ -632,19 +632,22 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="MfM-d5-5O5" firstAttribute="top" secondItem="cLE-ci-Sow" secondAttribute="top" id="20M-Ob-3Ph"/>
-                                                <constraint firstAttribute="bottom" secondItem="MfM-d5-5O5" secondAttribute="bottom" id="Hcm-jD-s8X"/>
+                                                <constraint firstAttribute="bottom" secondItem="MfM-d5-5O5" secondAttribute="bottom" constant="16" id="RnG-nw-EfL"/>
                                                 <constraint firstItem="MfM-d5-5O5" firstAttribute="leading" secondItem="cLE-ci-Sow" secondAttribute="leading" id="bOf-Sk-fbo"/>
                                                 <constraint firstAttribute="trailing" secondItem="MfM-d5-5O5" secondAttribute="trailing" id="r89-xO-xZ5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="feedArticleDateLabel" destination="rMs-NC-Y88" id="ybf-Tc-Gdi"/>
                                             <outlet property="feedArticleImageView" destination="x66-wq-a2N" id="u9e-HM-Ym5"/>
                                             <outlet property="feedArticleLabel" destination="c1B-gc-oBA" id="Soh-ZV-7Rm"/>
                                             <outlet property="feedArticleLikeButton" destination="VKu-O4-jZ4" id="lUF-2d-kjO"/>
                                             <outlet property="feedArticleText" destination="mhe-lu-MA0" id="MsP-l4-J9c"/>
+                                            <outlet property="feedCellView" destination="MfM-d5-5O5" id="0Z9-PD-Slt"/>
                                             <segue destination="GlJ-RN-gP9" kind="show" id="5mT-hG-Sdv"/>
                                         </connections>
                                     </tableViewCell>
