@@ -18,6 +18,7 @@
 		DD81803729D6383100C4DF1F /* FavouriteViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803629D6383100C4DF1F /* FavouriteViewControllerDelegate.swift */; };
 		DD81803929D6388C00C4DF1F /* FeedViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803829D6388C00C4DF1F /* FeedViewController+Extension.swift */; };
 		DD81803B29D638ED00C4DF1F /* FavouriteViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803A29D638ED00C4DF1F /* FavouriteViewController+Extension.swift */; };
+		DD81803F29D72C0200C4DF1F /* MoscowCityBuildings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD81803E29D72C0200C4DF1F /* MoscowCityBuildings.swift */; };
 		DD82224E29A79AD900E830C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82224D29A79AD900E830C1 /* AppDelegate.swift */; };
 		DD82225029A79AD900E830C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82224F29A79AD900E830C1 /* SceneDelegate.swift */; };
 		DD82225229A79AD900E830C1 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD82225129A79AD900E830C1 /* AuthorisationViewController.swift */; };
@@ -53,6 +54,7 @@
 		DD81803629D6383100C4DF1F /* FavouriteViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewControllerDelegate.swift; sourceTree = "<group>"; };
 		DD81803829D6388C00C4DF1F /* FeedViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD81803A29D638ED00C4DF1F /* FavouriteViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteViewController+Extension.swift"; sourceTree = "<group>"; };
+		DD81803E29D72C0200C4DF1F /* MoscowCityBuildings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoscowCityBuildings.swift; sourceTree = "<group>"; };
 		DD82224A29A79AD900E830C1 /* NewsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD82224D29A79AD900E830C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD82224F29A79AD900E830C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				DD78E06E29A9303E0055E656 /* Coordinates.swift */,
+				DD81803E29D72C0200C4DF1F /* MoscowCityBuildings.swift */,
 			);
 			path = MapViewModel;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			files = (
 				DD81802F29D47CF200C4DF1F /* UINavigationController+Extension.swift in Sources */,
 				DDE211B429C364A500EC9A00 /* LikeButton.swift in Sources */,
+				DD81803F29D72C0200C4DF1F /* MoscowCityBuildings.swift in Sources */,
 				DD7A493A29B8D023008D1A93 /* DetailViewController.swift in Sources */,
 				DD81803229D5D86600C4DF1F /* FavouriteService.swift in Sources */,
 				DD82225229A79AD900E830C1 /* AuthorisationViewController.swift in Sources */,

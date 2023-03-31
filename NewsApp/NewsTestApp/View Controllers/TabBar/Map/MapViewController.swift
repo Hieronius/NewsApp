@@ -21,31 +21,36 @@ final class MapViewController: UIViewController {
     
     private let nevaTowerPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: nevaTower.latitude, longitude: nevaTower.longtitude)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: MoscowCityBuildings.shared.nevaTower.latitude,
+                                                       longitude: MoscowCityBuildings.shared.nevaTower.longtitude)
         return annotation
     }()
     
     private let eyeTowerPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: eyeTower.latitude, longitude: eyeTower.longtitude)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: MoscowCityBuildings.shared.eyeTower.latitude,
+                                                       longitude: MoscowCityBuildings.shared.eyeTower.longtitude)
         return annotation
     }()
     
     private let eyeTowerSecondPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: eyeTowerSecond.latitude, longitude: eyeTowerSecond.longtitude)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: MoscowCityBuildings.shared.eyeTowerSecond.latitude,
+                                                       longitude: MoscowCityBuildings.shared.eyeTowerSecond.longtitude)
         return annotation
     }()
     
     private let towerUnderWaterPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: towerUnderWater.latitude, longitude: towerUnderWater.longtitude)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: MoscowCityBuildings.shared.towerUnderWater.latitude,
+                                                       longitude: MoscowCityBuildings.shared.towerUnderWater.longtitude)
         return annotation
     }()
     
     private let eurasiaPoint: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: eurasia.latitude, longitude: eurasia.longtitude)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: MoscowCityBuildings.shared.eurasia.latitude,
+                                                       longitude: MoscowCityBuildings.shared.eurasia.longtitude)
         return annotation
     }()
     
@@ -80,8 +85,8 @@ final class MapViewController: UIViewController {
     private func setMapViewRegion() {
         mapView.setRegion(MKCoordinateRegion(
             center: CLLocationCoordinate2D(
-                latitude: eurasia.latitude,
-                longitude: eurasia.longtitude),
+                latitude: MoscowCityBuildings.shared.eurasia.latitude,
+                longitude: MoscowCityBuildings.shared.eurasia.longtitude),
             span: MKCoordinateSpan(
                 latitudeDelta: 0.01,
                 longitudeDelta: 0.01)),
