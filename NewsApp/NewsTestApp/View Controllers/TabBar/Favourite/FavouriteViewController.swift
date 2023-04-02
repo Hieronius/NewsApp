@@ -36,26 +36,24 @@ final class FavouriteViewController: UIViewController {
         detailViewController.selectedArticle = FavouriteService.shared.favouriteArticles[indexPath.row]
         detailViewController.indexOfSelectedArticle = indexPath
         if let favouriteCollectionCell = favouriteCollectionView.cellForItem(at: indexPath) as? FavouriteCollectionViewCell {
-            detailViewController.currentStateOfLikeButtonOfSelectedArticle = favouriteCollectionCell.favouriteArticleCollectionLikeButton.imageView?.image
+            detailViewController.currentUIStateOfLikeButtonOfSelectedArticle = !favouriteCollectionCell.favouriteArticleCollectionLikeButton.isSelected
         }
-        detailViewController.favouriteViewControllerDelegate = self
     }
     
     // MARK: - IBActions
 
     @IBAction func favouriteArticleLikeButtonPressed(_ sender: UIButton) {
-        
         let likedArticleIndex = sender.tag
         let likedArticle = FavouriteService.shared.favouriteArticles[likedArticleIndex]
-        if sender.imageView?.image == LikeButton.unpressed.image {
-            sender.setImage(LikeButton.pressed.image, for: .normal)
+        if sender.isSelected {
             FavouriteService.shared.favouriteArticles.append(likedArticle)
+            sender.isSelected.toggle()
             viewDidAppear(true)
-        } else {
-            sender.setImage(LikeButton.unpressed.image, for: .normal)
             
+        } else {
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
+                sender.isSelected = false
                 viewDidAppear(true)
             }
         }
@@ -77,12 +75,13 @@ extension FavouriteViewController: UICollectionViewDelegate {
 
 extension FavouriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! FavouriteCollectionViewCell
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! FavouriteCollectionViewCell
          
         collectionCell.favouriteArticleCollectionDateLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].publishedAt.formateArticleDate()
         collectionCell.favouriteArticleCollectionArticleLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].title
         collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: FavouriteService.shared.favouriteArticles[indexPath.row].urlToImage ?? ImageService.defaultImage)
-            collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
+        collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)
+        collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.unpressed.image, for: .selected)
             collectionCell.favouriteArticleCollectionLikeButton.tag = indexPath.row
             collectionCell.layer.cornerRadius = 20
             return collectionCell

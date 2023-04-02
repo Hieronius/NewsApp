@@ -25,6 +25,7 @@ final class DetailViewController: UIViewController {
     
     var indexOfSelectedArticle: IndexPath?
     var currentStateOfLikeButtonOfSelectedArticle: UIImage?
+    var currentUIStateOfLikeButtonOfSelectedArticle = false
     var selectedArticle: Article!
     
     // MARK: - Lifecycle
@@ -38,18 +39,18 @@ final class DetailViewController: UIViewController {
     // MARK: - IBActions
         
     @IBAction func detailArticleLikeButtonPressed(_ sender: UIButton) {
-        if sender.imageView?.image == LikeButton.unpressed.image {
-            sender.setImage(LikeButton.pressed.image, for: .normal)
+        if !sender.isSelected {
             feedViewControllerDelegate?.addToSavedLikedArticle(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.likeArticleAndAddToFavourite(indexOfLikedArticle: indexOfSelectedArticle!, likedArticle: self.selectedArticle)
             FavouriteService.shared.favouriteArticles.append(selectedArticle)
+            sender.isSelected.toggle()
             
         } else {
-            sender.setImage(LikeButton.unpressed.image, for: .normal)
             feedViewControllerDelegate?.removeDislikedArticleFromSaved(articleIndex: indexOfSelectedArticle!)
             favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: selectedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
+                sender.isSelected = false
             }
         }
     }
@@ -57,13 +58,18 @@ final class DetailViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupSpecificArticleView() {
-            detailArticleImageView.layer.cornerRadius = 40
-            detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-            detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
-            detailArticleLabel.text = selectedArticle.title
-            detailArticleText.text = selectedArticle.content
-            detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? ImageService.defaultImage)
-            detailArticleLikeButton.setImage(currentStateOfLikeButtonOfSelectedArticle, for: .normal)
+        detailArticleImageView.layer.cornerRadius = 40
+        detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
+        detailArticleLabel.text = selectedArticle.title
+        detailArticleText.text = selectedArticle.content
+        detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? ImageService.defaultImage)
+        detailArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
+        detailArticleLikeButton.setImage(LikeButton.pressed.image, for: .selected)
+        
+        if currentUIStateOfLikeButtonOfSelectedArticle {
+            detailArticleLikeButton.isSelected = true
         }
+    }
     
 }

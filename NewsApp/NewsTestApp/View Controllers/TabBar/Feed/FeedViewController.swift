@@ -34,22 +34,30 @@ final class FeedViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton()
+         checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton()
     }
     
     // MARK: - Public Methods
     
-    /// When user wan't to go back from FavouriteViewController  to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
+    /// When user wan't to go back from FavouriteViewController or DetailViewController to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
     func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
-        var arrayOfArticlesToChange = [Int]()
+        var arrayOfDislikeButtons = [Int]()
+        var arrayOfLikeButtons = [Int]()
         for article in articlesDownloadedFromAPI {
             if !FavouriteService.shared.favouriteArticles.contains(article) {
-                arrayOfArticlesToChange.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
+                arrayOfDislikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
+            } else {
+                arrayOfLikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
             }
         }
-        for index in arrayOfArticlesToChange {
+        for index in arrayOfDislikeButtons {
             if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
-                cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
+                    cell.feedArticleLikeButton.isSelected = false
+            }
+        }
+        for index in arrayOfLikeButtons {
+            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
+                cell.feedArticleLikeButton.isSelected = true
             }
         }
     }
@@ -57,15 +65,14 @@ final class FeedViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! DetailViewController
+        let detailViewController = segue.destination as! DetailViewController
         guard let indexPath = feedTable.indexPathForSelectedRow else { return }
-        vc.selectedArticle = articlesDownloadedFromAPI[indexPath.row]
-        vc.indexOfSelectedArticle = indexPath
         
+        detailViewController.selectedArticle = articlesDownloadedFromAPI[indexPath.row]
+        detailViewController.indexOfSelectedArticle = indexPath
         if let articleCell = feedTable.cellForRow(at: indexPath) as? FeedTableViewCell {
-            vc.currentStateOfLikeButtonOfSelectedArticle = articleCell.feedArticleLikeButton.imageView?.image
+            detailViewController.currentUIStateOfLikeButtonOfSelectedArticle = articleCell.feedArticleLikeButton.isSelected
         }
-        vc.feedViewControllerDelegate = self
      }
     
     // MARK: - IBActions
@@ -73,14 +80,14 @@ final class FeedViewController: UIViewController {
     @IBAction func feedArticleLikeButtonPressed(_ sender: UIButton) {
         let likedArticleIndex = sender.tag
         let likedArticle = articlesDownloadedFromAPI[likedArticleIndex]
-        if sender.imageView?.image == LikeButton.unpressed.image {
-            sender.setImage(LikeButton.pressed.image, for: .normal)
+        if !sender.isSelected {
             FavouriteService.shared.favouriteArticles.append(likedArticle)
+            sender.isSelected.toggle()
             
         } else {
-            sender.setImage(LikeButton.unpressed.image, for: .normal)
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
+                sender.isSelected = false
             }
         }
     }
@@ -106,6 +113,7 @@ extension FeedViewController: UITableViewDataSource {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedTableViewCell
          cell.feedArticleImageView.loadImage(urlString: articlesDownloadedFromAPI[indexPath.row].urlToImage ?? ImageService.defaultImage)
          cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
+         cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .selected)
          cell.feedArticleLikeButton.tag = indexPath.row
          cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.row].publishedAt.formateArticleDate()
          cell.feedArticleLabel.text = articlesDownloadedFromAPI[indexPath.row].title
