@@ -35,25 +35,24 @@ final class AuthorisationViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func authorisationlogInButtonPressed(_ sender: Any) {
-//        if isAuthorisationLogAndPasswordTextFieldsIsEmpty {
-//            let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
-//            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-//            present(ac, animated: true)
-//
-//        } else if isValidEmail(authorisationEmailTextField.text!) == false {
-//            let ac = UIAlertController(title: "Ошибка", message: "Проверьте правильность ввода почты", preferredStyle: .alert)
-//            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-//            present(ac, animated: true)
-//
-//        } else if authorisationEmailTextField.text == TestUser.testUser.userLogin && authorisationPasswordTextField.text == TestUser.testUser.userPassword {
-//                performSegue(withIdentifier: "TabBarSegue", sender: sender)
-//
-//        } else {
-//            let ac = UIAlertController(title: "Ошибка", message: "Указан неправильный логин или пароль", preferredStyle: .alert)
-//            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-//            present(ac, animated: true)
-//        }
-        performSegue(withIdentifier: "TabBarSegue", sender: sender)
+        if isAuthorisationLogAndPasswordTextFieldsIsEmpty {
+            let ac = UIAlertController(title: "Ошибка", message: "Заполните пустые поля", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+
+        } else if isValidEmail(authorisationEmailTextField.text!) == false {
+            let ac = UIAlertController(title: "Ошибка", message: "Проверьте правильность ввода почты", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+
+        } else if authorisationEmailTextField.text == TestUser.testUser.userLogin && authorisationPasswordTextField.text == TestUser.testUser.userPassword {
+                performSegue(withIdentifier: "TabBarSegue", sender: sender)
+
+        } else {
+            let ac = UIAlertController(title: "Ошибка", message: "Указан неправильный логин или пароль", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+        }
     }
     
     @IBAction private func toRegistrationButtonPressed(_ sender: Any) {

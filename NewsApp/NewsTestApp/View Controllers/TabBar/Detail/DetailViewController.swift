@@ -20,9 +20,6 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    weak var feedViewControllerDelegate: FeedViewControllerDelegate?
-    weak var favouriteViewControllerDelegate: FavouriteViewControllerDelegate?
-    
     var indexOfSelectedArticle: IndexPath?
     var currentStateOfLikeButtonOfSelectedArticle: UIImage?
     var currentUIStateOfLikeButtonOfSelectedArticle = false
@@ -40,14 +37,10 @@ final class DetailViewController: UIViewController {
         
     @IBAction func detailArticleLikeButtonPressed(_ sender: UIButton) {
         if !sender.isSelected {
-            feedViewControllerDelegate?.addToSavedLikedArticle(articleIndex: indexOfSelectedArticle!)
-            favouriteViewControllerDelegate?.likeArticleAndAddToFavourite(indexOfLikedArticle: indexOfSelectedArticle!, likedArticle: self.selectedArticle)
             FavouriteService.shared.favouriteArticles.append(selectedArticle)
             sender.isSelected.toggle()
             
         } else {
-            feedViewControllerDelegate?.removeDislikedArticleFromSaved(articleIndex: indexOfSelectedArticle!)
-            favouriteViewControllerDelegate?.dislikeArticleAndRemoveFromFavourite(indexOfDislikedArticle: indexOfSelectedArticle!)
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: selectedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
                 sender.isSelected = false
