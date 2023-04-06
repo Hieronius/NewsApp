@@ -120,7 +120,7 @@ extension FeedViewController: UITableViewDataSource {
          cell.feedArticleText.text = articlesDownloadedFromAPI[indexPath.row].description
          cell.layer.cornerRadius = 25
          cell.feedCellView.layer.cornerRadius = 25
-         
+
          let backgroundView = UIView()
          backgroundView.backgroundColor = .clear
          cell.selectedBackgroundView = backgroundView
