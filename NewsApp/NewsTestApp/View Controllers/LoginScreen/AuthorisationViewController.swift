@@ -32,6 +32,7 @@ final class AuthorisationViewController: UIViewController {
         setupAuthorisationLogInButton()
         
         print("screen has been loaded")
+        print("View did loaded")
     }
     
     // MARK: - IBActions
