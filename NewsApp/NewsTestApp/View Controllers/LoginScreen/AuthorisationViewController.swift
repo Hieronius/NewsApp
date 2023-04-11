@@ -30,9 +30,6 @@ final class AuthorisationViewController: UIViewController {
         setupAuthorisationEmailTextField()
         setupAuthorisationPasswordTextField()
         setupAuthorisationLogInButton()
-        
-        print("screen has been loaded")
-        print("View did loaded")
     }
     
     // MARK: - IBActions
