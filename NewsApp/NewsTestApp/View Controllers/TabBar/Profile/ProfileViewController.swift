@@ -27,9 +27,7 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupProfileImageView()
-        setupProfileNameField()
-        setupProfileEmailField()
+        setupUI()
     }
     
     // MARK: - IBActions
@@ -44,6 +42,12 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func setupUI() {
+        setupProfileImageView()
+        setupProfileNameField()
+        setupProfileEmailField()
+    }
     
     private func setupProfileImageView() {
         profileImageView.image = TestUser.testUser.userTestPhoto

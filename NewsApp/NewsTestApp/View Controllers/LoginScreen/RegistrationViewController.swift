@@ -31,10 +31,7 @@ final class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRegistrationNameTextField()
-        setupRegistrationEmailTextField()
-        setupRegistrationPasswordTestField()
-        setupRegistrationLogInButton()
+        setupUI()
     }
     
     // MARK: - IBActions
@@ -56,6 +53,13 @@ final class RegistrationViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func setupUI() {
+        setupRegistrationNameTextField()
+        setupRegistrationEmailTextField()
+        setupRegistrationPasswordTestField()
+        setupRegistrationLogInButton()
+    }
     
     private func setupRegistrationNameTextField() {
         registrationNameTextField.layer.cornerRadius = 20

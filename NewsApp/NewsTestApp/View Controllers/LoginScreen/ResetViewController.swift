@@ -19,8 +19,7 @@ final class ResetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupResetEmailTextField()
-        setupResetPasswordButton()
+        setupUI()
     }
     
     // MARK: - IBActions
@@ -45,6 +44,11 @@ final class ResetViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func setupUI() {
+        setupResetEmailTextField()
+        setupResetPasswordButton()
+    }
     
     private func setupResetEmailTextField() {
         resetEmailTextField.layer.cornerRadius = 20

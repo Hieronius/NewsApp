@@ -27,9 +27,7 @@ final class AuthorisationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupAuthorisationEmailTextField()
-        setupAuthorisationPasswordTextField()
-        setupAuthorisationLogInButton()
+        setupUI()
     }
     
     // MARK: - IBActions
@@ -67,6 +65,12 @@ final class AuthorisationViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func setupUI() {
+        setupAuthorisationEmailTextField()
+        setupAuthorisationPasswordTextField()
+        setupAuthorisationLogInButton()
+    }
     
     private func setupAuthorisationEmailTextField() {
         authorisationEmailTextField.layer.cornerRadius = 20
