@@ -22,6 +22,8 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("test commit 18.04.23")
+        
         FeedAPIManager.shared.getNewsFromAPI { [weak self] values in
             DispatchQueue.main.async {
                 guard let self else { return }
