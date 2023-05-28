@@ -22,46 +22,13 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("test commit 18.04.23")
-        
-        FeedAPIManager.shared.getNewsFromAPI { [weak self] values in
-            DispatchQueue.main.async {
-                guard let self else { return }
-                self.articlesDownloadedFromAPI = values
-                self.feedTable.reloadData()
-            }
-        }
+        getNewsFromAPI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
          checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton()
-    }
-    
-    // MARK: - Public Methods
-    
-    /// When user wan't to go back from FavouriteViewController or DetailViewController to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
-    func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
-        var arrayOfDislikeButtons = [Int]()
-        var arrayOfLikeButtons = [Int]()
-        for article in articlesDownloadedFromAPI {
-            if !FavouriteService.shared.favouriteArticles.contains(article) {
-                arrayOfDislikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
-            } else {
-                arrayOfLikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
-            }
-        }
-        for index in arrayOfDislikeButtons {
-            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
-                    cell.feedArticleLikeButton.isSelected = false
-            }
-        }
-        for index in arrayOfLikeButtons {
-            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
-                cell.feedArticleLikeButton.isSelected = true
-            }
-        }
     }
     
     // MARK: - Navigation
@@ -90,6 +57,45 @@ final class FeedViewController: UIViewController {
             if let index = FavouriteService.shared.favouriteArticles.firstIndex(of: likedArticle) {
                 FavouriteService.shared.favouriteArticles.remove(at: index)
                 sender.isSelected = false
+            }
+        }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func getNewsFromAPI() {
+        DispatchQueue.global(qos: .utility).async {
+            FeedAPIManager.shared.getNewsFromAPI { [weak self] values in
+                DispatchQueue.main.async {
+                    guard let self else { return }
+                    self.articlesDownloadedFromAPI = values
+                    self.feedTable.reloadData()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Public Methods
+    
+    /// When user wan't to go back from FavouriteViewController or DetailViewController to the FeedViewController this method should check is article has been liked or disliked and change it's actual like button image.
+    func checkSavedArticlesForRemovedOnesAndUpdateItsLikeButton() {
+        var arrayOfDislikeButtons = [Int]()
+        var arrayOfLikeButtons = [Int]()
+        for article in articlesDownloadedFromAPI {
+            if !FavouriteService.shared.favouriteArticles.contains(article) {
+                arrayOfDislikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
+            } else {
+                arrayOfLikeButtons.append(articlesDownloadedFromAPI.firstIndex(of: article)!)
+            }
+        }
+        for index in arrayOfDislikeButtons {
+            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
+                    cell.feedArticleLikeButton.isSelected = false
+            }
+        }
+        for index in arrayOfLikeButtons {
+            if let cell = feedTable.cellForRow(at: IndexPath(row: index, section: 0)) as? FeedTableViewCell {
+                cell.feedArticleLikeButton.isSelected = true
             }
         }
     }
