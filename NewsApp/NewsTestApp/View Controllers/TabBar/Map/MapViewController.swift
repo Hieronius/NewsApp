@@ -64,14 +64,18 @@ final class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupMapView()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupMapView() {
         view.addSubview(mapView)
         setupMapViewConstraints()
         mapView.addAnnotations(pointsArray)
         mapView.delegate = self
         setMapViewRegion()
     }
-    
-    // MARK: - Private Methods
     
     private func setupMapViewConstraints() {
         NSLayoutConstraint.activate([

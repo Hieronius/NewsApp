@@ -52,7 +52,8 @@ final class DetailViewController: UIViewController {
     
     private func setupSpecificArticleView() {
         detailArticleImageView.layer.cornerRadius = 40
-        detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner,
+                                                      .layerMinXMaxYCorner]
         detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
         detailArticleLabel.text = selectedArticle.title
         detailArticleText.text = selectedArticle.content
