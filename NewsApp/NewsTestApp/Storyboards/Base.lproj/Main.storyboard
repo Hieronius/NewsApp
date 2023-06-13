@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет аккаунта ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEP-QA-lBK">
-                                <rect key="frame" x="68" y="326" width="84" height="18"/>
+                                <rect key="frame" x="50" y="326" width="93.5" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="cgs-dJ-UGf"/>
                                 </constraints>
@@ -107,9 +107,9 @@
                         <constraints>
                             <constraint firstItem="JEe-BV-dtd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="3ZT-fN-OT6"/>
                             <constraint firstItem="mHw-aE-smf" firstAttribute="top" secondItem="FuS-dx-58h" secondAttribute="bottom" constant="20" id="4R4-yF-YsU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P7O-5Y-0rE" secondAttribute="trailing" constant="57" id="4ql-Fj-Evi"/>
+                            <constraint firstAttribute="trailing" secondItem="P7O-5Y-0rE" secondAttribute="trailing" constant="57" id="4ql-Fj-Evi"/>
                             <constraint firstItem="mHw-aE-smf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CCq-sT-5Ot"/>
-                            <constraint firstItem="P7O-5Y-0rE" firstAttribute="leading" secondItem="jEP-QA-lBK" secondAttribute="trailing" constant="6" id="Deq-tC-092"/>
+                            <constraint firstItem="P7O-5Y-0rE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jEP-QA-lBK" secondAttribute="trailing" constant="8" symbolic="YES" id="Deq-tC-092"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FuS-dx-58h" secondAttribute="trailing" constant="37" id="Eep-yE-E6z"/>
                             <constraint firstItem="jEP-QA-lBK" firstAttribute="top" secondItem="mHw-aE-smf" secondAttribute="bottom" constant="20" id="Fqr-ch-uSW"/>
                             <constraint firstItem="JEe-BV-dtd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="I8h-gT-Ggt"/>
@@ -118,7 +118,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TK2-hk-XHT" secondAttribute="bottom" constant="30" id="UmH-JT-bLW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JEe-BV-dtd" secondAttribute="trailing" constant="37" id="Vln-yY-CVj"/>
                             <constraint firstItem="FuS-dx-58h" firstAttribute="top" secondItem="JEe-BV-dtd" secondAttribute="bottom" constant="15" id="bMf-nD-GUp"/>
-                            <constraint firstItem="jEP-QA-lBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="bPI-gE-6TH"/>
+                            <constraint firstItem="jEP-QA-lBK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="bPI-gE-6TH"/>
                             <constraint firstItem="FuS-dx-58h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="lTR-d1-pDw"/>
                             <constraint firstItem="P7O-5Y-0rE" firstAttribute="top" secondItem="mHw-aE-smf" secondAttribute="bottom" constant="20" id="na8-dM-aF6"/>
                         </constraints>
