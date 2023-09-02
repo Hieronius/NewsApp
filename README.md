@@ -8,6 +8,25 @@
 
 Пароль - 12345
 
+### Работа в действии
+
+
+https://github.com/Hieronius/NewsApp/assets/41345907/7bf4e030-29bb-4f7f-a5bd-65dd8c5e6b77
+
+
+
+https://github.com/Hieronius/NewsApp/assets/41345907/2584ca37-588d-4768-8ed0-b6882948aea9
+
+
+
+https://github.com/Hieronius/NewsApp/assets/41345907/57ad7fd9-3f2c-499a-ac2c-9930fa9d0ec4
+
+
+
+https://github.com/Hieronius/NewsApp/assets/41345907/72e70ca6-1032-4130-8e5e-ffdedd0d3578
+
+
+
 ## Список завершенных задач:
 
 ### 1. TabBar:
