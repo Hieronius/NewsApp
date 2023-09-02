@@ -77,7 +77,7 @@ extension FavouriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! FavouriteCollectionViewCell
          
-        collectionCell.favouriteArticleCollectionDateLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].publishedAt.formateArticleDate()
+        collectionCell.favouriteArticleCollectionDateLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].publishedAt?.formateArticleDate()
         collectionCell.favouriteArticleCollectionArticleLabel.text = FavouriteService.shared.favouriteArticles[indexPath.row].title
         collectionCell.favouriteArticleCollectionImageView.loadImage(urlString: FavouriteService.shared.favouriteArticles[indexPath.row].urlToImage ?? ImageService.defaultImage)
         collectionCell.favouriteArticleCollectionLikeButton.setImage(LikeButton.pressed.image, for: .normal)

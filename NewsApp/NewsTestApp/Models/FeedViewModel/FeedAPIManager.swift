@@ -15,7 +15,7 @@ final class FeedAPIManager {
     
     // MARK: - Private Properties
     
-    private let urlString = "https://newsapi.org/v2/everything?q=apple&from=2023-05-27&to=2023-05-27&sortBy=popularity&apiKey=95b0d26c32714d8ab8936e8a9f6f9b84"
+    private let urlString = "https://newsapi.org/v2/everything?q=apple&from=2023-09-01&to=2023-09-01&sortBy=popularity&apiKey=95b0d26c32714d8ab8936e8a9f6f9b84"
     
     // MARK: - Public Methods
     

@@ -54,7 +54,7 @@ final class DetailViewController: UIViewController {
         detailArticleImageView.layer.cornerRadius = 40
         detailArticleImageView.layer.maskedCorners = [.layerMaxXMaxYCorner,
                                                       .layerMinXMaxYCorner]
-        detailArticleDateLabel.text = selectedArticle.publishedAt.formateArticleDate()
+        detailArticleDateLabel.text = selectedArticle.publishedAt?.formateArticleDate()
         detailArticleLabel.text = selectedArticle.title
         detailArticleText.text = selectedArticle.content
         detailArticleImageView.loadImage(urlString: selectedArticle.urlToImage ?? ImageService.defaultImage)

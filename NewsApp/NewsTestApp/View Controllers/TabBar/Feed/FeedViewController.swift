@@ -123,7 +123,7 @@ extension FeedViewController: UITableViewDataSource {
          cell.feedArticleLikeButton.setImage(LikeButton.unpressed.image, for: .normal)
          cell.feedArticleLikeButton.setImage(LikeButton.pressed.image, for: .selected)
          cell.feedArticleLikeButton.tag = indexPath.row
-         cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.row].publishedAt.formateArticleDate()
+         cell.feedArticleDateLabel.text = articlesDownloadedFromAPI[indexPath.row].publishedAt?.formateArticleDate()
          cell.feedArticleLabel.text = articlesDownloadedFromAPI[indexPath.row].title
          cell.feedArticleText.text = articlesDownloadedFromAPI[indexPath.row].description
          cell.layer.cornerRadius = 25
