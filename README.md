@@ -1,14 +1,14 @@
 # NewsApp
 
-Небольшое приложение, которое использует бесплатное API для доступа к последним новостям связанным с фирмой Apple. Приложение имеет несколько экранов и позволяет просматривать ленту новостей, переходить на детальный экран и добавлять статьи в избранное.
+A small application that uses a free API to access the latest news related to the company Apple. The application has multiple screens and allows users to view the news feed, navigate to a detailed screen, and add articles to favorites.
 
 ### Данные пользователя для доступа:
 
-Логин - test@mail.ru
+Login - test@mail.ru
 
-Пароль - 12345
+Password - 12345
 
-### Работа в действии
+### App work presentation:
 
 
 https://github.com/Hieronius/NewsApp/assets/41345907/7bf4e030-29bb-4f7f-a5bd-65dd8c5e6b77
