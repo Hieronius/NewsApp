@@ -1,8 +1,8 @@
-#🗞NewsApp
+# 🗞NewsApp
 
 A small application that uses a free API to access the latest news related to the company Apple. The application has multiple screens and allows users to view the news feed, navigate to a detailed screen, and add articles to favorites.
 
-#🛠Technologies:
+# 🛠Technologies:
 - MVC
 - UIKit
 - Storyboard
@@ -16,7 +16,7 @@ A small application that uses a free API to access the latest news related to th
 - Autolayout
 - URLSession
 
-### Данные пользователя для доступа:
+### User data for access:
 
 Login - test@mail.ru
 
