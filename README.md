@@ -45,10 +45,10 @@ https://github.com/Hieronius/NewsApp/assets/41345907/72e70ca6-1032-4130-8e5e-ffd
 - Fix image size of detailArticle screen
 - Implement AthorisationScreen
 
-### History of commits:
+## 🌳History of commits:
 
-#### Part 1:
+### Part 1:
 https://github.com/Hieronius/Learning-projects-2023/commits/Main/NewsTestApp
 
-#### Part 2:
+### Part 2:
 https://github.com/Hieronius/NewsApp/commits/Main
