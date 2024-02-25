@@ -1,10 +1,3 @@
-//
-//  UIImageView + Extension.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 28.02.2023.
-//
-
 import UIKit
 
 extension UIImageView {

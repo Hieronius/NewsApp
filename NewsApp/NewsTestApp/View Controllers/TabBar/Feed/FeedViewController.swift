@@ -1,10 +1,3 @@
-//
-//  FeedViewController.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 23.02.2023.
-//
-
 import UIKit
 
 final class FeedViewController: UIViewController {

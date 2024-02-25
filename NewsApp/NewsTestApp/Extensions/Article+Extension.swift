@@ -1,10 +1,3 @@
-//
-//  Article + Extension.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 14.03.2023.
-//
-
 import Foundation
 
 extension Article: Equatable {

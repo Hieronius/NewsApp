@@ -1,10 +1,3 @@
-//
-//  FeedData.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 28.02.2023.
-//
-
 struct FeedData: Codable {
     let status: String?
     let totalResults: Int?

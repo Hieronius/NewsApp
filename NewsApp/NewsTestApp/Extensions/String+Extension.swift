@@ -1,10 +1,3 @@
-//
-//  String + extension.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 15.03.2023.
-//
-
 import Foundation
 
 extension String {

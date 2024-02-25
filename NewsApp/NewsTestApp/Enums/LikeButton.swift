@@ -1,10 +1,3 @@
-//
-//  LikeButton.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 16.03.2023.
-//
-
 import UIKit
 
 enum LikeButton {

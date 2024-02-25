@@ -1,10 +1,3 @@
-//
-//  DefaultArticleImage.swift
-//  NewsTestApp
-//
-//  Created by Арсентий Халимовский on 14.03.2023.
-//
-
 import Foundation
 
 struct ImageService {
